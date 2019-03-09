@@ -48,16 +48,17 @@
             Menu
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="/views/signin.handlebars">Sign Out</a>
+            <a class="dropdown-item" href="/signin">Sign Out</a>
             <a class="dropdown-item" href="#">Account Settings</a>
           </div>
         </li>
       </ul>
-      <button class="btn btn-outline-success my-2 my-sm-0" id="search" type="submit">Search</button>
+      <a href="/search" class="btn btn-info" role="button">Search</a>
     </div>
   </nav>
 
   {{{body}}}
+
 </body>
 
 {{!-- Our JS --}}

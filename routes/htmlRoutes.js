@@ -3,7 +3,7 @@ var db = require("../models");
 module.exports = function(app) {
   // Load signin page
   app.get("/", function(req, res) {
-    res.render("signup");
+    res.render("signin");
   });
 
   // Load signup page
