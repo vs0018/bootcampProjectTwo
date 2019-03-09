@@ -11,6 +11,11 @@ module.exports = function(app) {
     res.render("signup");
   });
 
+  // Load create event page
+  app.get("/addevent", function(req, res) {
+    res.render("addevent");
+  });
+
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
     res.render("404");
