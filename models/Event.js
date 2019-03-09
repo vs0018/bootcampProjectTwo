@@ -6,8 +6,6 @@
 //   return Example;
 // };
 
-
-
 // Dependencies
 // =============================================================
 
@@ -18,7 +16,7 @@ var Event = sequelize.define("event", {
   eventID: {
     type: Sequelize.INTEGER,
     primaryKey: true,
-    autoIncrement: true 
+    autoIncrement: true
   },
 
   eventName: Sequelize.STRING,
@@ -59,10 +57,9 @@ var Event = sequelize.define("event", {
   eventCelebrityAttendanceYN: Sequelize.BOOLEAN
 });
 
-// Event.hasOne(activities, { 
-//   foreignKey: 'eventActivityID' 
+// Event.hasOne(activities, {
+//   foreignKey: 'eventActivityID'
 // }),
-
 
 Event.sync();
 
