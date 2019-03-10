@@ -22,7 +22,7 @@ module.exports = function (sequelize, Sequelize) {
         isEmail: true
       }
     },
-    
+
     attendeeInstagram: Sequelize.STRING,
     attendeeTwitter: Sequelize.STRING,
     attendeeFacebook: Sequelize.STRING,
@@ -32,15 +32,6 @@ module.exports = function (sequelize, Sequelize) {
     attendeeEmergencyContactPhone: Sequelize.INTEGER,
     attendeeHasCarYN: Sequelize.BOOLEAN,
     attendeePhotoURL: Sequelize.STRING,
-
-    attendeeRatingOverall: Sequelize.FLOAT,
-    attendeeRatingSportstmanship: Sequelize.FLOAT,
-    attendeeRatingAttitude: Sequelize.FLOAT,
-    attendeeRatingSkill: Sequelize.FLOAT,
-    attendeeRatingTimeliness: Sequelize.FLOAT,
-    attendeeRatingAggressive: Sequelize.FLOAT,
-    attendeeRatingThreateningYN: Sequelize.BOOLEAN
-
     attendeeEnglishYN: Sequelize.BOOLEAN,
     attendeeSpanishYN: Sequelize.BOOLEAN,
     attendeeChineseYN: Sequelize.BOOLEAN,
@@ -55,11 +46,7 @@ module.exports = function (sequelize, Sequelize) {
     attendeeOtherLanguageYN: Sequelize.BOOLEAN
   });
 
-  Attendee.associate = function (models) {
 
-    Attendee.belongsToMany(models.Event, { through: 'EventAttendance' });
-
-  };
 
   return Attendee.sync();
 };

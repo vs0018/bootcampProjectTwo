@@ -3,7 +3,8 @@ module.exports = function (sequelize, Sequelize) {
     activityID: {
       type: Sequelize.INTEGER,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
+      allowNull: false
     },
     activityName: Sequelize.STRING,
     activityIndividualEquipmentNeeded: Sequelize.BOOLEAN,
@@ -11,13 +12,12 @@ module.exports = function (sequelize, Sequelize) {
     activityEquipment: Sequelize.STRING
   });
 
+
   Activity.associate = function (models) {
-
-    Activity.belongsTo(models.Event, { foreignKey: 'eventID' });
-    Activity.hasOne(models.Category, { foreignKey: 'categoryID' });
-
+    Activity.belongsTo(models.Event);
   };
 
-  return Activity.sync();
-};
+  Activity.sync();
 
+  return Activity;
+};
