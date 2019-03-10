@@ -1,20 +1,24 @@
-var Sequelize = require("sequelize");
-var sequelize = require("../config/config.js");
 
-var Activity = sequelize.define("activity", {
+module.exports = function (sequelize, Sequelize) {
+  var Activity = sequelize.define("Activity", {
     activityID: {
-        type: Sequelize.INTEGER,
-        primaryKey: true,
-        autoIncrement: true 
+      type: Sequelize.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
     },
-
-// categoryID:,
     activityName: Sequelize.STRING,
     activityIndividualEquipmentNeeded: Sequelize.BOOLEAN,
     activitySharedEquipmentNeeded: Sequelize.BOOLEAN,
     activityEquipment: Sequelize.STRING
-});
+  });
 
-Activity.sync();
+  Activity.associate = function (models) {
 
-module.exports = Activity;
+    Activity.belongsTo(models.Event, { foreignKey: 'eventID' });
+    Activity.hasOne(models.Category, { foreignKey: 'categoryID' });
+
+  };
+
+  return Activity.sync();
+};
+
