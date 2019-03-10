@@ -8,7 +8,7 @@ module.exports = function (sequelize, Sequelize) {
 
     eventAttendanceID: {
       type: Sequelize.INTEGER,
-      // primaryKey: true,
+      primaryKey: true,
       autoIncrement: true
     },
 
@@ -27,15 +27,6 @@ module.exports = function (sequelize, Sequelize) {
     eventAttendanceRatingOtherAttendees: Sequelize.FLOAT
   });
 
-  EventAttendance.associate = function (models) {
-
-    Attendee.belongsToMany(models.Event, { through: EventAttendance });
-    Event.belongsToMany(models.Attendee, { through: EventAttendance });
-
-    // EventAttendance.hasMany(models.AttendeeReating, { through: '' });
-    Event.hasMany(models.Attendee, { through: 'EventAttendance' });
-
-  };
 
   return EventAttendance.sync();
 

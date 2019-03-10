@@ -4,9 +4,10 @@ module.exports = function (sequelize, Sequelize) {
     eventID: {
       type: Sequelize.INTEGER,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
+      allowNull: false
     },
-  
+
     eventName: Sequelize.STRING,
     eventDescription: Sequelize.STRING,
     eventAddress1: Sequelize.STRING,
@@ -17,6 +18,7 @@ module.exports = function (sequelize, Sequelize) {
     eventZip: Sequelize.INTEGER,
     eventStartDatetime: Sequelize.DATE,
     eventEndDatetime: Sequelize.DATE,
+    eventPhoto: Sequelize.STRING,
     eventEquipmentNeededYN: Sequelize.BOOLEAN,
     eventEquipment: Sequelize.STRING,
     eventParkingAvailableYN: Sequelize.BOOLEAN,
@@ -39,17 +41,15 @@ module.exports = function (sequelize, Sequelize) {
     eventRegisteredAttendees: Sequelize.INTEGER,
     eventConfirmedAttendees: Sequelize.INTEGER,
     eventCelebrityAttendanceYN: Sequelize.BOOLEAN
-    
+
   });
 
-
   Event.associate = function (models) {
-
-    Event.hasMany(models.Attendee, { through: EventAttendance });
     Event.hasOne(models.Activity, { foreignKey: 'activityID' });
-    
   };
 
-  return Event.sync();
+  // Event.sync();
+
+  return Event;
 };
 
