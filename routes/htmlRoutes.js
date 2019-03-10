@@ -6,6 +6,11 @@ module.exports = function(app) {
     res.render("signin");
   });
 
+  // Load user homepage
+  app.get("/index", function(req, res) {
+    res.render("index");
+  });
+
   // Load signup page
   app.get("/signup", function(req, res) {
     res.render("signup");
@@ -13,7 +18,16 @@ module.exports = function(app) {
 
   // Load create event page
   app.get("/addevent", function(req, res) {
-    res.render("addevent");
+    res.render("addEvents");
+  });
+
+  // Load search events page
+  app.get("/search", function(req, res) {
+    db.Event.findAll({}).then(function(dbEvents) {
+      res.render("search", {
+        events: dbEvents
+      });
+    });
   });
 
   // Render 404 page for any unmatched routes

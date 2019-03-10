@@ -1,4 +1,4 @@
-module.exports = function (sequelize, Sequelize) {
+module.exports = function(sequelize, Sequelize) {
   var Activity = sequelize.define("Activity", {
     activityID: {
       type: Sequelize.INTEGER,
@@ -12,12 +12,10 @@ module.exports = function (sequelize, Sequelize) {
     activityEquipment: Sequelize.STRING
   });
 
-
-  Activity.associate = function (models) {
-    Activity.belongsTo(models.Event);
+  Activity.associate = function(models) {
+    Activity.belongsTo(models.Event, { foreignKey: "eventID" });
+    Activity.hasOne(models.Category, { foreignKey: "categoryID" });
   };
 
-  Activity.sync();
-
-  return Activity;
+  return Activity.sync();
 };
