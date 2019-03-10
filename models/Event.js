@@ -1,4 +1,3 @@
-
 module.exports = function (sequelize, Sequelize) {
   var Event = sequelize.define("Event", {
     eventID: {
@@ -6,7 +5,7 @@ module.exports = function (sequelize, Sequelize) {
       primaryKey: true,
       autoIncrement: true
     },
-  
+
     eventName: Sequelize.STRING,
     eventDescription: Sequelize.STRING,
     eventAddress1: Sequelize.STRING,
@@ -39,7 +38,7 @@ module.exports = function (sequelize, Sequelize) {
     eventRegisteredAttendees: Sequelize.INTEGER,
     eventConfirmedAttendees: Sequelize.INTEGER,
     eventCelebrityAttendanceYN: Sequelize.BOOLEAN
-    
+
   });
 
 
@@ -47,7 +46,7 @@ module.exports = function (sequelize, Sequelize) {
 
     Event.hasMany(models.Attendee, { through: EventAttendance });
     Event.hasOne(models.Activity, { foreignKey: 'activityID' });
-    
+
   };
 
   return Event.sync();

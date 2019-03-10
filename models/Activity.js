@@ -1,4 +1,3 @@
-
 module.exports = function (sequelize, Sequelize) {
   var Activity = sequelize.define("Activity", {
     activityID: {
