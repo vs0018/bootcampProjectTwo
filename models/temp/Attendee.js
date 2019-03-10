@@ -1,6 +1,4 @@
-
-
-module.exports = function (sequelize, Sequelize) {
+module.exports = function(sequelize, Sequelize) {
   var Attendee = sequelize.define("Attendee", {
     attendeeID: {
       type: Sequelize.INTEGER,
@@ -46,8 +44,9 @@ module.exports = function (sequelize, Sequelize) {
     attendeeOtherLanguageYN: Sequelize.BOOLEAN
   });
 
-
+  Attendee.associate = function(models) {
+    Attendee.belongsToMany(models.Event, { through: "EventAttendance" });
+  };
 
   return Attendee.sync();
 };
-

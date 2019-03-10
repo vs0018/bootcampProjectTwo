@@ -1,11 +1,5 @@
-
-
-
-
-
-module.exports = function (sequelize, Sequelize) {
+module.exports = function(sequelize, Sequelize) {
   var EventAttendance = sequelize.define("EventAttendance", {
-
     eventAttendanceID: {
       type: Sequelize.INTEGER,
       primaryKey: true,
@@ -27,7 +21,14 @@ module.exports = function (sequelize, Sequelize) {
     eventAttendanceRatingOtherAttendees: Sequelize.FLOAT
   });
 
+  // EventAttendance.associate = function(models) {
+  //   Attendee.belongsToMany(models.Event, { through: EventAttendance });
+  //   Event.belongsToMany(models.Attendee, { through: EventAttendance });
 
-  return EventAttendance.sync();
+  //   // EventAttendance.hasMany(models.AttendeeReating, { through: '' });
+  //   Event.hasMany(models.Attendee, { through: "EventAttendance" });
+  // };
 
+  return EventAttendance;
+  // .sync();
 };

@@ -1,5 +1,4 @@
-
-module.exports = function (sequelize, Sequelize) {
+module.exports = function(sequelize, Sequelize) {
   var Event = sequelize.define("Event", {
     eventID: {
       type: Sequelize.INTEGER,
@@ -41,15 +40,14 @@ module.exports = function (sequelize, Sequelize) {
     eventRegisteredAttendees: Sequelize.INTEGER,
     eventConfirmedAttendees: Sequelize.INTEGER,
     eventCelebrityAttendanceYN: Sequelize.BOOLEAN
-
   });
 
-  Event.associate = function (models) {
-    Event.hasOne(models.Activity, { foreignKey: 'activityID' });
-  };
+  // Event.associate = function(models) {
+  //   Event.hasMany(models.Attendee, { through: EventAttendance });
+  //   Event.hasOne(models.Activity, { foreignKey: "activityID" });
+  // };
 
   // Event.sync();
 
   return Event;
 };
-
