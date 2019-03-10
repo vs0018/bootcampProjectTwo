@@ -12,12 +12,6 @@ module.exports = function (sequelize, Sequelize) {
   });
 
 
-  EventAttendanceRating.associate = function (models) {
-
-    EventAttendeeRatings.belongsToMany(models.Event, { through: EventAttendance });
-    EventAttendeeRatings.belongsToMany(models.Attendee, { through: EventAttendance });
-
-  };
 
   return EventAttendanceRating.sync();
 };

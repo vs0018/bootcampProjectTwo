@@ -1,9 +1,11 @@
+
 module.exports = function (sequelize, Sequelize) {
   var Event = sequelize.define("Event", {
     eventID: {
       type: Sequelize.INTEGER,
       primaryKey: true,
-      autoIncrement: true
+      autoIncrement: true,
+      allowNull: false
     },
 
     eventName: Sequelize.STRING,
@@ -16,6 +18,7 @@ module.exports = function (sequelize, Sequelize) {
     eventZip: Sequelize.INTEGER,
     eventStartDatetime: Sequelize.DATE,
     eventEndDatetime: Sequelize.DATE,
+    eventPhoto: Sequelize.STRING,
     eventEquipmentNeededYN: Sequelize.BOOLEAN,
     eventEquipment: Sequelize.STRING,
     eventParkingAvailableYN: Sequelize.BOOLEAN,
@@ -41,14 +44,12 @@ module.exports = function (sequelize, Sequelize) {
 
   });
 
-
   Event.associate = function (models) {
-
-    Event.hasMany(models.Attendee, { through: EventAttendance });
     Event.hasOne(models.Activity, { foreignKey: 'activityID' });
-
   };
 
-  return Event.sync();
+  // Event.sync();
+
+  return Event;
 };
 
