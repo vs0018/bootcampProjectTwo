@@ -1,5 +1,5 @@
 
-module.exports = function (sequelize, Sequelize) {
+module.exports = function (sequelize, Sequelize, models) {
   var Event = sequelize.define("Event", {
     eventID: {
       type: Sequelize.INTEGER,
@@ -45,10 +45,14 @@ module.exports = function (sequelize, Sequelize) {
   });
 
   Event.associate = function (models) {
-    Event.hasOne(models.Activity, { foreignKey: 'activityID' });
+    Event.belongsTo(models.Activity, { foreignKey: 'activityID' });
   };
 
-  // Event.sync();
+
+  Event.associate = function (models) {
+    Event.belongsToMany(models.Attendee, { through: 'EventAttendance', foreignKey: 'eventID' });
+  };
+
 
   return Event;
 };

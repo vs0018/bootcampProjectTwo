@@ -1,8 +1,4 @@
 
-
-
-
-
 module.exports = function (sequelize, Sequelize) {
   var EventAttendance = sequelize.define("EventAttendance", {
 
@@ -28,6 +24,6 @@ module.exports = function (sequelize, Sequelize) {
   });
 
 
-  return EventAttendance.sync();
+  return EventAttendance;
 
 };

@@ -11,7 +11,10 @@ module.exports = function (sequelize, Sequelize) {
     categoryPhysicalYN: Sequelize.BOOLEAN
   });
 
+  Category.associate = function (models) {
+    Category.hasMany(models.Activity, { foreignKey: 'activityID' });
+  };
 
-  return Category.sync();
+  return Category;
 };
 
