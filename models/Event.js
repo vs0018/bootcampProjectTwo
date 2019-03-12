@@ -1,4 +1,4 @@
-module.exports = function(sequelize, Sequelize) {
+module.exports = function(sequelize, Sequelize, models) {
   var Event = sequelize.define("Event", {
     eventID: {
       type: Sequelize.INTEGER,
@@ -42,12 +42,16 @@ module.exports = function(sequelize, Sequelize) {
     eventCelebrityAttendanceYN: Sequelize.BOOLEAN
   });
 
-  // Event.associate = function(models) {
-  //   Event.hasMany(models.Attendee, { through: EventAttendance });
-  //   Event.hasOne(models.Activity, { foreignKey: "activityID" });
-  // };
+  Event.associate = function(models) {
+    Event.belongsTo(models.Activity, { foreignKey: "activityID" });
+  };
 
-  // Event.sync();
+  Event.associate = function(models) {
+    Event.belongsToMany(models.Attendee, {
+      through: "EventAttendance",
+      foreignKey: "eventID"
+    });
+  };
 
   return Event;
 };

@@ -45,8 +45,11 @@ module.exports = function(sequelize, Sequelize) {
   });
 
   Attendee.associate = function(models) {
-    Attendee.belongsToMany(models.Event, { through: "EventAttendance" });
+    Attendee.belongsToMany(models.Event, {
+      through: "EventAttendance",
+      foreignKey: "attendeeID"
+    });
   };
 
-  return Attendee.sync();
+  return Attendee;
 };

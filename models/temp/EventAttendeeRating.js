@@ -18,5 +18,5 @@ module.exports = function(sequelize, Sequelize) {
     });
   };
 
-  return EventAttendanceRating.sync();
+  return EventAttendanceRating;
 };
