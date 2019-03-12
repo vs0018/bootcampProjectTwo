@@ -27,6 +27,11 @@
 
 {{!-- our CSS --}}
   <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
+
+{{!-- Google Fonts --}}
+  <link href="https://fonts.googleapis.com/css?family=Audiowide|Carter+One|Josefin+Sans|Julius+Sans+One|Monoton|Orbitron|Permanent+Marker|Poiret+One|Russo+One" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Alex+Brush|Fredericka+the+Great" rel="stylesheet">
+
   
   <title>Home Page</title>
 
@@ -34,7 +39,7 @@
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light mb-5">
-    <a class="navbar-brand" href="#">GoPlay!</a>
+    <a class="navbar-brand" href="/">GoPlay!</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -45,20 +50,22 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
-            Dropdown
+            Menu
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Log Out</a>
+            <a class="dropdown-item" href="/signin">Sign Out</a>
             <a class="dropdown-item" href="#">Account Settings</a>
-            <a class="dropdown-item" href="#">Something else here</a>
           </div>
         </li>
       </ul>
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      <a href="/search" class="btn btn-info" role="button">Search</a>
     </div>
   </nav>
 
   {{{body}}}
+
 </body>
 
+{{!-- Our JS --}}
+<script src="../../public/js/index.js"></script>
 </html>
