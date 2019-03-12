@@ -15,14 +15,14 @@ module.exports = function(app) {
     });
   });
 
-  // Create a new user/atendee
+  // Create a new user/attendee
   app.post("/api/attendees", function(req, res) {
     db.Attendee.create(req.body).then(function(dbExample) {
       res.json(dbExample);
     });
   });
 
-  // Delete an example by id
+  // Delete an event by id
   app.delete("/api/events/:id", function(req, res) {
     db.Event.destroy({ where: { id: req.params.id } }).then(function(
       dbExample
