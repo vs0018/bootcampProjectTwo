@@ -25,10 +25,6 @@ module.exports = function(sequelize, Sequelize) {
   //   Attendee.belongsToMany(models.Event, { through: EventAttendance });
   //   Event.belongsToMany(models.Attendee, { through: EventAttendance });
 
-  //   // EventAttendance.hasMany(models.AttendeeReating, { through: '' });
-  //   Event.hasMany(models.Attendee, { through: "EventAttendance" });
-  // };
-
   return EventAttendance;
   // .sync();
 };

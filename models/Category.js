@@ -11,8 +11,8 @@ module.exports = function(sequelize, Sequelize) {
   });
 
   Category.associate = function(models) {
-    Category.hasMany(models.Activity, { foreignKey: "categoryID" });
+    Category.hasMany(models.Activity, { foreignKey: "activityID" });
   };
 
-  return Category.sync();
+  return Category;
 };
