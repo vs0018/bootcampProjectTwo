@@ -11,12 +11,15 @@
 
 body{
   background-image: linear-gradient(to bottom right,#BF4D8B, #2851BB);
+  background-repeat:no-repeat;
 }
 
+html{
+  
+}
 .containAll{
   width: 60%;
   margin: 0 auto;
-  border: 2px solid black;
   padding: 30px;
   margin-top: 25px;
   margin-bottom: 25px;
@@ -45,6 +48,7 @@ body{
 #submit{
   font-size: 1.5em;
   font-family:'Poiret One', cursive;
+  font-weight: bolder;
 }
 
 #placeholderFont{
@@ -54,6 +58,7 @@ body{
 label{
   font-size: 1.1em;
   font-family: 'Poiret One', cursive;
+  font-weight: bolder;
 }
 
 .questionBox{
@@ -64,4 +69,140 @@ label{
   padding-top: 10px;
   padding-right: 5px;
   border-radius: 10px;
+}
+
+.questionBox1{
+  border-bottom: 1.5px solid black;
+  /* border-left: .5px solid black; */
+  padding-left: 10px;
+  box-shadow: 0px 10px 20px 4px ;
+  padding-top: 10px;
+  padding-right: 5px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+#signInBottom{
+  font-size: 1.1em;
+  font-family: 'Poiret One', cursive;
+  font-weight: bolder;
+}
+
+#signInBox{
+  width: 60%;
+  border-radius: 25px;
+}
+
+#signInCorner{
+  border-radius: 15px;
+}
+
+#interestHead{
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 2.5em;
+  font-weight: 100;
+}
+
+#interest{
+  padding: 20px;
+  margin-left: 20px;
+}
+
+#interestSingle{
+  /* width: 200%; */
+  height: 30px;
+
+}
+
+#interestOptions{
+  display: flex;
+  justify-content: space-around;
+}
+
+#submitSignUp{
+  font-size: 1.5em;
+  font-family:'Poiret One', cursive;
+  font-weight: bold;
+  margin-top: 30px;
+}
+
+#submitCol{
+  display: flex;
+  justify-content: space-around;
+}
+
+#homeContainer{
+  width: 100%;
+  height: 100%;
+  margin-top: 2%;
+}
+
+#homeLeft{
+  /* border: 2px solid yellow; */
+  height: 1000px;
+  overflow: scroll;
+}
+
+#homeRight{
+  /* border: 2px solid yellow; */
+  height: 1000%;
+  overflow: scroll;
+  
+}
+
+#homeCardTitle{
+  text-align: center;
+}
+
+.card{
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border: 1px solid black;
+  box-shadow: 10px 10px 10px;
+  
+}
+
+#homePage{
+  /* border: 5px solid green; */
+  background-image: url(https://wpmisc.com/sites/default/files/wallpaper/nature/72470/madeira-hd-wallpapers-72470-8729608.png);
+  border: 2px solid black;
+  background-size: 100%;
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  padding-top: 25px;
+  
+  
+}
+
+#homeCreate{
+  width: 75%;
+  margin: 0 auto;
+  box-shadow: 10px 10px 10px black;
+  border: 1px solid black;
+
+}
+
+#jumbo{
+  text-align: center;
+  width: 85%;
+  margin: 0 auto;
+  color: white;
+  -webkit-text-stroke-width: .1px;
+  -webkit-text-stroke-color: black;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  font-family: 'Fredericka the Great', cursive;
+  background-image: url(http://img.archiexpo.com/images_ae/photo-g/67453-3698295.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 101%;
+  
+}
+
+#searchBox{
+  border: 2px solid black;
+  background: white;
+  margin-top: 40px;
+  border-radius: 15px;
+  width: 60%;
 }
