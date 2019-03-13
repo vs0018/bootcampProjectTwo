@@ -1,5 +1,4 @@
-$(document).ready(function () {
-
+$(document).ready(function() {
   // alert("jquery's here!");
 
   // Getting references to our form and inputs
@@ -9,12 +8,11 @@ $(document).ready(function () {
 
   // When the form is submitted, we validate there's an email and password entered
   // loginForm.on("submit", function (event) {
-  $("body").on("click", "#submit", function (event) {
-
+  $("body").on("click", "#submit", function(event) {
     event.preventDefault();
 
     alert(emailInput.val());
-    
+
     var userData = {
       email: emailInput.val().trim(),
       password: passwordInput.val().trim()
@@ -35,12 +33,13 @@ $(document).ready(function () {
     $.post("/api/signin", {
       email: email,
       password: password
-    }).then(function (data) {
-      window.location.replace(data);
-      // If there's an error, log the error
-    }).catch(function (err) {
-      console.log(err);
-    });
-  };
-
+    })
+      .then(function(data) {
+        window.location.replace(data);
+        // If there's an error, log the error
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
+  }
 });

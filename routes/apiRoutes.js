@@ -1,13 +1,12 @@
 var db = require("../models");
 var passport = require("../config/passport");
 
-
 module.exports = function(app) {
-  
   //EVENT ROUTES
 
   // Chained routes for general api/event
-  app.route("api/events")
+  app
+    .route("api/events")
     // GET route for returning all events
     .get(function(req, res) {
       db.Event.findAll({}).then(function(dbEvents) {
@@ -22,7 +21,8 @@ module.exports = function(app) {
     });
 
   // Chained routes by event name
-  app.route("api/events/:evtName")
+  app
+    .route("api/events/:evtName")
     // GET routes for returning specific events based on search params
     .get(function(req, res) {
       db.Event.findAll({
@@ -36,19 +36,20 @@ module.exports = function(app) {
 
   // Delete (Cancel) an event by id
   app.delete("/api/events/:id", function(req, res) {
-    db.Event.destroy({ 
-        where: { 
-          eventID: req.params.id 
-        } 
-      }).then(function(dbEvent) {
-        res.json(dbEvent);
+    db.Event.destroy({
+      where: {
+        eventID: req.params.id
+      }
+    }).then(function(dbEvent) {
+      res.json(dbEvent);
     });
   });
 
   //ATTENDEE ROUTES
 
   // Chained routes for general api/attendee
-  app.route("api/attendee")
+  app
+    .route("api/attendee")
     // GET route for returning all users
     .get(function(req, res) {
       db.Attendee.findAll({}).then(function(dbUsers) {
@@ -62,7 +63,8 @@ module.exports = function(app) {
       });
     });
 
-  app.route("api/users/:userName")
+  app
+    .route("api/users/:userName")
     // GET route for returning a particular user's events
     .get(function(req, res) {
       db.Attendee.findAll({
@@ -77,11 +79,11 @@ module.exports = function(app) {
       }).then(function(dbUser) {
         res.json(dbUser);
       });
-    })
+    });
 
-// 
-// P A S S P O R T routing
-// 
+  //
+  // P A S S P O R T routing
+  //
 
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid signin credentials, send them to the members page.
@@ -102,13 +104,15 @@ module.exports = function(app) {
     db.User.create({
       email: req.body.email,
       password: req.body.password
-    }).then(function() {
-      res.redirect(307, "/api/signin");
-    }).catch(function(err) {
-      console.log(err);
-      res.json(err);
-      // res.status(422).json(err.errors[0].message);
-    });
+    })
+      .then(function() {
+        res.redirect(307, "/api/signin");
+      })
+      .catch(function(err) {
+        console.log(err);
+        res.json(err);
+        // res.status(422).json(err.errors[0].message);
+      });
   });
 
   // Route for logging user out
@@ -122,8 +126,7 @@ module.exports = function(app) {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
-    }
-    else {
+    } else {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
@@ -132,6 +135,4 @@ module.exports = function(app) {
       });
     }
   });
-
-
 };
