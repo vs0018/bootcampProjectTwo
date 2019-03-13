@@ -5,8 +5,7 @@ module.exports = function(app) {
   //EVENT ROUTES
 
   // Chained routes for general api/event
-  app
-    .route("api/events")
+  app.route("api/events")
     // GET route for returning all events
     .get(function(req, res) {
       db.Event.findAll({}).then(function(dbEvents) {
@@ -14,15 +13,14 @@ module.exports = function(app) {
       });
     })
     // POST route for creating a new event
-    .post("api/events", function(req, res) {
+    .post(function(req, res) {
       db.Event.create(req.body).then(function(dbEvent) {
         res.json(dbEvent);
       });
     });
 
   // Chained routes by event name
-  app
-    .route("api/events/:evtName")
+  app.route("api/events/:evtName")
     // GET routes for returning specific events based on search params
     .get(function(req, res) {
       db.Event.findAll({
@@ -48,8 +46,7 @@ module.exports = function(app) {
   //ATTENDEE ROUTES
 
   // Chained routes for general api/attendee
-  app
-    .route("api/attendee")
+  app.route("api/attendee")
     // GET route for returning all users
     .get(function(req, res) {
       db.Attendee.findAll({}).then(function(dbUsers) {
@@ -63,8 +60,7 @@ module.exports = function(app) {
       });
     });
 
-  app
-    .route("api/users/:userName")
+  app.route("api/users/:userName")
     // GET route for returning a particular user's events
     .get(function(req, res) {
       db.Attendee.findAll({
