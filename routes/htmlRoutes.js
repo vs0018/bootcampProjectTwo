@@ -34,11 +34,6 @@ module.exports = function(app) {
     res.render("signin");
   });
 
-  // Load user homepage
-  app.get("/index", function(req, res) {
-    res.render("index");
-  });
-
   // Load signup page
   app.get("/signup", function(req, res) {
     res.render("signup");
