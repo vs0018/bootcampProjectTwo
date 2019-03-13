@@ -1,81 +1,85 @@
 <div id="searchBox" class="container mb-5">
             <div class="row">
                 <div class="col-sm">
-                    <h3>Search Events</h3>
+                    <br>
+                    <h3 class="formHead">Search Events</h3>
                 </div>
             </div>
             <hr>
-            <div class="row">
+            <hr>
+            <br>
+            <div id="searchContainer" class="row">
                 <div class="col-sm">
                     <form>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="searchFirstName">First Name</label>
-                                <input type="text" class="form-control" id="searchFirstName" placeholder="Jane">
+                                <input id="placeholderFont" type="text" class="form-control" id="searchFirstName" placeholder="Jane">
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="searchLastName">Last Name</label>
-                                <input type="text" class="form-control" id="searchLastName" placeholder="Doe">
+                                <input id="placeholderFont" type="text" class="form-control" id="searchLastName" placeholder="Doe">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="searchCity">City</label>
-                                <input type="text" class="form-control" id="searchCity">
+                                <input id="placeholderFont" type="text" class="form-control" id="searchCity" placeholder="City">
                             </div>
                             <div class="form-group col-md-4">
                                 <label for="searchState">State</label>
                                 <select id="searchState" class="form-control">
                                     <option selected>Choose...</option>
-                                    <option>DE</option>
-                                    <option>NY</option>
-                                    <option>NJ</option>
-                                    <option>PA</option>
+                                    <option id="placeholderFont">DE</option>
+                                    <option id="placeholderFont">NY</option>
+                                    <option id="placeholderFont">NJ</option>
+                                    <option id="placeholderFont">PA</option>
                                 </select>
                             </div>
-                            <div class="form-group col-md-2">
+                            <div class="form-group col-md-3">
                                 <label for="searchZip">Zip</label>
-                                <input type="text" class="form-control" id="searchZip">
+                                <input id="placeholderFont" type="text" class="form-control" id="searchZip" placeholder="00000">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="searchUserName">User Name</label>
-                                <input type="text" class="form-control" id="searchUserName" placeholder="JD007">
+                                <input id="placeholderFont" type="text" class="form-control" id="searchUserName" placeholder="JD007">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="searchUserName">Event Name</label>
-                                <input type="text" class="form-control" id="searchEventName" placeholder="Pick Up BBall">
+                                <input id="placeholderFont" type="text" class="form-control" id="searchEventName" placeholder="Pick Up BBall">
                             </div>
                         </div>
-                        <hr>
+                    
                         <br>
                     </form>
                 </div>
-
+            </div>
+            <div class="interests">
                 <div class="col-sm offset-2">
                     <form>
                         <div class="form-row">
-                            <label for="interests">Type of Event:</label>
+                            <label for="interests"><u>Type of Event:</u></label>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-3">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                                    <input id="placeholderFont" class="form-check-input" type="checkbox" id="gridCheck">
                                     <label class="form-check-label" for="gridCheck">
                                         Sports
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                                    <input id="placeholderFont" class="form-check-input" type="checkbox" id="gridCheck">
                                     <label class="form-check-label" for="gridCheck">
                                         Movies
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                                    <input id="placeholderFont" class="form-check-input" type="checkbox" id="gridCheck">
                                     <label class="form-check-label" for="gridCheck">
                                         Concerts
                                     </label>
@@ -83,19 +87,19 @@
                             </div>
                             <div class="form-group col-md-3">
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                                    <input id="placeholderFont" class="form-check-input" type="checkbox" id="gridCheck">
                                     <label class="form-check-label" for="gridCheck">
                                         Trips
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                                    <input id="placeholderFont" class="form-check-input" type="checkbox" id="gridCheck">
                                     <label class="form-check-label" for="gridCheck">
                                         Games
                                     </label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="gridCheck">
+                                    <input id="placeholderFont" class="form-check-input" type="checkbox" id="gridCheck">
                                     <label class="form-check-label" for="gridCheck">
                                         Social Events (ie. happy hour, dancing)
                                     </label>
@@ -104,11 +108,12 @@
                         </div>
                     </form>
                 </div>
-            </div>
+                </div>
+            
 
-            <div class="row">
+            <div class="submitButton" class="row">
                 <div class="col-sm">
-                    <button type="submit" id="search" class="btn btn-primary float-right mr-5">Find It!</button>
+                    <button type="submit" id="submit" class="btn btn-primary center-block" >Find It!</button>
                 </div>
             </div>
 
