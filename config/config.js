@@ -4,18 +4,21 @@ module.exports = {
     username: "root",
     // make sure to set this env variable in your .env file
     password: process.env.LOCAL_MYSQL_PASSWORD,
+    // password: process.env.MYSQL_PASSWORD,
     database: "goplay_db",
     host: "localhost",
     dialect: "mysql"
   },
+
   test: {
     username: "root",
-    password: null,
-    database: "testdb",
+    password: process.env.LOCAL_MYSQL_PASSWORD,
+    database: "goplay_db_test",
     host: "localhost",
     dialect: "mysql",
     logging: false
   },
+
   production: {
     /*
      * Set all of the production environment variables here
