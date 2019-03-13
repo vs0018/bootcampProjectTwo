@@ -8,16 +8,15 @@ module.exports = function(app) {
     });
   });
 
-  // Get route for returning posts of a specific category
+  // GET route for returning events of a specific type
   app.get("/api/events/category/:category", function(req, res) {
-    db.Post.findAll({
+    db.Event.findAll({
       where: {
         category: req.params.category
       }
-    })
-      .then(function(dbPost) {
-        res.json(dbPost);
-      });
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
   });
 
   // POST route for creating a new event
