@@ -1,23 +1,29 @@
-html {
-  min-height: 100%;
+
+form.signup,
+form.login {
+  margin-top: 50px;
 }
 
-body{
-  background-image: linear-gradient(to bottom right,#BF4D8B, #2851BB);
-  background-repeat: no-repeat;
-  height: 100%;
-  
+
+.list-group-item {
+  line-height: 2.5;
 }
 
 #sin {
   background-image: url("https://cdn2.lamag.com/wp-content/uploads/sites/9/2017/05/basketball3.jpg");
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 1100 800px;
-  
-  
+  background-size: 100% auto;
 }
 
+body{
+  background-image: linear-gradient(to bottom right,#BF4D8B, #2851BB);
+  background-repeat:no-repeat;
+}
+
+html{
+  min-height: 100%;
+}
 .containAll{
   width: 60%;
   margin: 0 auto;
@@ -44,15 +50,12 @@ body{
 .submitButton{
   text-align: center;
   margin-top: 25px;
-  margin-bottom: 25px;
-
 }
 
 #submit{
   font-size: 1.5em;
   font-family:'Poiret One', cursive;
   font-weight: bolder;
-
 }
 
 #placeholderFont{
@@ -137,7 +140,7 @@ label{
 
 #homeContainer{
   width: 100%;
-  height: 50%;
+  height: 100%;
   margin-top: 2%;
 }
 
@@ -209,32 +212,4 @@ label{
   margin-top: 40px;
   border-radius: 15px;
   width: 60%;
-}
-
-#searchContainer{ 
-  width: 75%;
-  margin: 0 auto;
-  border-radius: 15px;
-  box-shadow: 0px 10px 20px 4px ;
-  padding: 30px;
-  border-bottom: 1.5px solid black;
-}
-
-.interests{
-  width: 75%;
-  margin: 0 auto;
-  margin-top: 25px;
-  border-radius: 20px;
-  box-shadow: 0px 10px 20px 4px ;
-  padding: 15px;
-  text-align: left;
-  border-bottom: 1.5px solid black;
-}
-
-.homeHead{
-  font-family: 'Fredericka the Great', cursive;
-  text-align: center;
-  font-size: 4em;
-  font-size: 72px;
-  color: white;
 }
