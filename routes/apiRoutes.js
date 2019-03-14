@@ -16,6 +16,10 @@ module.exports = function(app) {
     .post(function(req, res) {
       db.Event.create({
         eventName: req.body.name,
+        eventDescription: req.body.desc,
+        eventCity: req.body.city,
+        eventState: req.body.state,
+        eventZip: req.body.zip
       }).then(function(dbEvent) {
         res.json(dbEvent);
       });
