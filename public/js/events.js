@@ -8,35 +8,43 @@ var $submitBtn = $("#submit");
 //FORM ELEMENTS
 var $city = $("#eventCity");
 var $state = $("#eventState");
+var $zip = $("#eventZip");
 var $fname = $("#userFirstName");
 var $lname = $("#userLastName");
+var $evName = $("#eventName");
 var $desc = $("#eventDesc");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveEvent: function (event) {
+  saveEvent: function(newEvent) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
       url: "api/events",
-      data: JSON.stringify(event)
+      data: JSON.stringify(newEvent),
+      success: function(data) {
+        console.log(data);
+      },
+      error: function() {
+        // Uh oh, something went wrong
+      }
     });
   },
-  getAllEvents: function () {
+  getAllEvents: function() {
     return $.ajax({
       url: "api/events",
       type: "GET"
     });
   },
-  getOneEvent: function (param) {
+  getOneEvent: function(param) {
     return $.ajax({
       url: "api/events/" + param, //need to define this below somewhere
-      type: "GET",
+      type: "GET"
     });
   },
-  deleteEvent: function (id) {
+  deleteEvent: function(id) {
     return $.ajax({
       url: "api/events/" + id,
       type: "DELETE"
@@ -45,48 +53,51 @@ var API = {
 };
 
 // eventsList gets all events from the db and repopulates the list
-var eventsList = function () {
-  API.getAllEvents().then(function (data) {
+var eventsList = function() {
+  API.getAllEvents().then(function(data) {
     var events = JSON.parse(data);
     return events;
   });
 };
 
-var handleGoButtonClick = function (event) {
+var handleGoButtonClick = function(event) {
   event.preventDefault();
 
   var list = eventsList();
-  console.log(list)
+  console.log(list);
 };
 
 // handleFormSubmit is called whenever we submit a new event
 // Save the new event to the db and refresh the list
-var handleFormSubmit = function (event) {
+var handleFormSubmit = function(event) {
   event.preventDefault();
 
-  var event = {
+  var newEvent = {
     city: $city.val().trim(),
     state: $state.val().trim(),
+    zip: $zip.val().trim(),
     userFname: $fname.val().trim(),
     userLname: $lname.val().trim(),
-    desc: $desc.val().trim(),
-
+    eventName: $evName.val().trim(),
+    desc: $desc.val().trim()
   };
 
-  API.saveEvent(event).then(function () {
-    refreshEvents();
-  });
+  console.log(newEvent);
 
+  API.saveEvent(newEvent);
+  // .then(function () {
+  //   refreshEvents();
+  // });
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function () {
+var handleDeleteBtnClick = function() {
   var idToDelete = $(this)
     .parent()
     .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function () {
+  API.deleteExample(idToDelete).then(function() {
     refreshExamples();
   });
 };

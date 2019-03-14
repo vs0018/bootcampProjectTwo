@@ -12,8 +12,8 @@
                 <form class="needs-validation" novalidate>
                     <div class="form-row">
                         <div class="col-md-4 mb-3">
-                            <label for="validationCustom01">First name</label>
-                            <input type="text" class="form-control" id="validationCustom01" placeholder="First name"
+                            <label for="userFirstName">First name</label>
+                            <input type="text" class="form-control" id="userFirstName" placeholder="First name"
                                 required>
                             <div class="valid-feedback">
                                 Looks good!
@@ -21,7 +21,7 @@
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom02">Last name</label>
-                            <input type="text" class="form-control" id="validationCustom02" placeholder="Last name"
+                            <input type="text" class="form-control" id="userLastName" placeholder="Last name"
                                 required>
                             <div class="valid-feedback">
                                 Looks good!
@@ -33,10 +33,10 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroupPrepend">@</span>
                                 </div>
-                                <input type="text" class="form-control" id="validationCustomUsername" placeholder="Username"
+                                <input type="text" class="form-control" id="eventUser" placeholder="Username"
                                     aria-describedby="inputGroupPrepend" required>
                                 <div class="invalid-feedback">
-                                    Please choose a username.
+                                    Please enter your username.
                                 </div>
                             </div>
                         </div>
@@ -51,15 +51,20 @@
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom04">State</label>
-                            <input type="text" class="form-control" id="eventState" placeholder="State"
-                                required>
+                            <select id="eventState" class="form-control" required>
+                                <option selected>Choose...</option>
+                                <option>DE</option>
+                                <option>NY</option>
+                                <option>NJ</option>
+                                <option>PA</option>
+                            </select>
                             <div class="invalid-feedback">
                                 Please provide a valid state.
                             </div>
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom05">Zip</label>
-                            <input type="text" class="form-control" id="validationCustom05" placeholder="Zip" required>
+                            <input type="text" class="form-control" id="eventZip" placeholder="Zip" required>
                             <div class="invalid-feedback">
                                 Please provide a valid zip.
                             </div>
@@ -107,12 +112,12 @@
                 <br><br>
                 <!--======= Type of Activity ======= -->
                 <div class="questionBox">
-                <p class="h3"><u>Activity Name & Description</u></p>
+                <p class="h3"><u>Event Name & Description</u></p>
                 <div class="form-group">
-                    <label for="activityName">Activity Name:</label>
-                    <input type="text" class="form-control" id="activityName" placeholder="Pick up BBall">
-                    <label for="activityDescription">Activity Description:</label>
-                    <input type="text" class="form-control" id="activityDesc" placeholder="Recreational BBall game">
+                    <label for="activityName">Event Name:</label>
+                    <input type="text" class="form-control" id="eventName" placeholder="Pick up BBall">
+                    <label for="activityDescription">Event Description:</label>
+                    <input type="text" class="form-control" id="eventDesc" placeholder="Recreational BBall game">
                 </div>
                 <br>
                 </div>

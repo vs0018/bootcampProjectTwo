@@ -2,13 +2,13 @@ $(document).ready(function() {
   // alert("jquery's here!");
 
   // Getting references to our form and inputs
-  var loginForm = $(".signin");
+  var $submit = $("#submitSignIn");
   var emailInput = $("#emailInput");
   var passwordInput = $("#passwordInput");
 
   // When the form is submitted, we validate there's an email and password entered
   // loginForm.on("submit", function (event) {
-  $("body").on("click", "#submit", function(event) {
+  $submit.on("click", function(event) {
     event.preventDefault();
 
     alert(emailInput.val());
