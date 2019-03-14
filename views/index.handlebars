@@ -10,7 +10,7 @@
 
         <div id="homeLeft" class="col-4">
             <div class="homeHead">GoPlay!</div>
-            
+
             <a href="/addevent" id="homeCreate" type="button" class="btn btn-success btn-lg btn-block" role="button">Create an Event</a>
 
             <div class="card" style="width: 18rem;">
@@ -82,6 +82,9 @@
         <div id="homeRight" class="col-8">
             <div class="homeHead">Your Plays</div>
             <div class="accordion" id="eventAccordion">
+                {{#each events}}
+                    {{> event-block}}
+                {{/each}}
             </div>
         </div>
     </div>
