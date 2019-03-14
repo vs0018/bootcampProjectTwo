@@ -1,3 +1,5 @@
+import { checkServerIdentity } from "tls";
+
 // Get references to page elements
 var $submitBtn = $("#submit");
 var $eventList = $("#event-list");
@@ -20,9 +22,9 @@ var API = {
       type: "GET"
     });
   },
-  getOneEvent: function(name) {
+  getOneEvent: function(param) {
     return $.ajax({
-      url: "api/events/" + name,
+      url: "api/events/" + param, //need to define this below somewhere
       type: "GET"
     });
   },
@@ -69,8 +71,11 @@ var handleFormSubmit = function(event) {
   event.preventDefault();
 
   var event = {
-    eventName: $exampleText.val().trim(),
-    eventDescription: $exampleDescription.val().trim()
+    name: $exampleText.val().trim(),
+    desc: $exampleDescription.val().trim(),
+    city: ,
+    state: ,
+    zip: 
   };
 
   if (!(example.text && example.description)) {
