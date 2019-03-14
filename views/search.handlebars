@@ -126,7 +126,9 @@ that lists all events until search is populated --}}
 
     <div class="row">
         <div class="col-sm">
-          {{#events}}
+          {{#each events}}
+            {{> events/event-block}}
+          {{/each}}
         </div>
     </div>
   </div>
