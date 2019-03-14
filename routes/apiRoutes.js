@@ -14,18 +14,20 @@ module.exports = function(app) {
     })
     // POST route for creating a new event
     .post(function(req, res) {
-      db.Event.create(req.body).then(function(dbEvent) {
+      db.Event.create({
+        eventName: req.body.name,
+      }).then(function(dbEvent) {
         res.json(dbEvent);
       });
     });
 
   // Chained routes by event name
-  app.route("api/events/:evtName")
+  app.route("api/events/:eventName")
     // GET routes for returning specific events based on search params
     .get(function(req, res) {
       db.Event.findAll({
         where: {
-          eventName: req.params.evtName
+          eventName: req.params.name
         }
       }).then(function(dbEvent) {
         res.json(dbEvent);
