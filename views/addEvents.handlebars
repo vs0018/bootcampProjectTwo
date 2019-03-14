@@ -1,19 +1,19 @@
 
         <form>
             <div class="containAll">
-                <h1 class="formHead" >Creating an Event Page</h1>
+                <h1 class="formHead" >Create an Event</h1>
                 <hr>
                 <hr>
                 <br>
                 <br>
                 <!--======= Event Creator and Location ======= -->
                 <div class="questionBox">
-                <p class="h3"><u>Event Creator and Location of Event</u></p>
+                <p class="h3"><u>Event Creator and Location</u></p>
                 <form class="needs-validation" novalidate>
                     <div class="form-row">
                         <div class="col-md-4 mb-3">
-                            <label for="validationCustom01">First name</label>
-                            <input id="placeholderFont" type="text" class="form-control" id="validationCustom01" placeholder="First name"
+                            <label for="userFirstName">First name</label>
+                            <input type="text" class="form-control" id="userFirstName" placeholder="First name"
                                 required>
                             <div class="valid-feedback">
                                 Looks good!
@@ -21,7 +21,7 @@
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom02">Last name</label>
-                            <input id="placeholderFont" type="text" class="form-control" id="validationCustom02" placeholder="Last name"
+                            <input type="text" class="form-control" id="userLastName" placeholder="Last name"
                                 required>
                             <div class="valid-feedback">
                                 Looks good!
@@ -33,10 +33,10 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroupPrepend">@</span>
                                 </div>
-                                <input id="placeholderFont" type="text" class="form-control" id="validationCustomUsername" placeholder="Username"
+                                <input type="text" class="form-control" id="eventUser" placeholder="Username"
                                     aria-describedby="inputGroupPrepend" required>
                                 <div class="invalid-feedback">
-                                    Please choose a username.
+                                    Please enter your username.
                                 </div>
                             </div>
                         </div>
@@ -44,22 +44,27 @@
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
                             <label for="validationCustom03">City</label>
-                            <input id="placeholderFont" type="text" class="form-control" id="validationCustom03" placeholder="City" required>
+                            <input type="text" class="form-control" id="eventCity" placeholder="City" required>
                             <div class="invalid-feedback">
                                 Please provide a valid city.
                             </div>
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom04">State</label>
-                            <input id="placeholderFont" type="text" class="form-control" id="validationCustom04" placeholder="State"
-                                required>
+                            <select id="eventState" class="form-control" required>
+                                <option selected>Choose...</option>
+                                <option>DE</option>
+                                <option>NY</option>
+                                <option>NJ</option>
+                                <option>PA</option>
+                            </select>
                             <div class="invalid-feedback">
                                 Please provide a valid state.
                             </div>
                         </div>
                         <div class="col-md-3 mb-3">
                             <label for="validationCustom05">Zip</label>
-                            <input id="placeholderFont" type="text" class="form-control" id="validationCustom05" placeholder="Zip" required>
+                            <input type="text" class="form-control" id="eventZip" placeholder="Zip" required>
                             <div class="invalid-feedback">
                                 Please provide a valid zip.
                             </div>
@@ -107,10 +112,12 @@
                 <br><br>
                 <!--======= Type of Activity ======= -->
                 <div class="questionBox">
-                <p class="h3"><u>Type of Event/Activity</u></p>
+                <p class="h3"><u>Event Name & Description</u></p>
                 <div class="form-group">
-                    <label for="formGroupExampleInput">Type of Activity:</label>
-                    <input id="placeholderFont" type="text" class="form-control" id="formGroupExampleInput" placeholder="Type of Event/Activity">
+                    <label for="activityName">Event Name:</label>
+                    <input type="text" class="form-control" id="eventName" placeholder="Pick up BBall">
+                    <label for="activityDescription">Event Description:</label>
+                    <input type="text" class="form-control" id="eventDesc" placeholder="Recreational BBall game">
                 </div>
                 <br>
                 </div>
@@ -120,7 +127,7 @@
                         <p class="h3"><u>Add a Photo For This Event</u></p>
                         <div class="form-group">
                             <label for="formGroupExampleInput">Photo URL:</label>
-                            <input id="placeholderFont" type="text" class="form-control" id="formGroupExampleInput" placeholder="Image URL">
+                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Image URL">
                         </div>
                         <br>
                         </div>
@@ -137,7 +144,7 @@
                 <br> <br>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Added Notes About Start Times and Dates:</label>
-                    <input id="placeholderFont" type="number" class="form-control" id="formGroupExampleInput2" placeholder="Changes for Specific Days or Times">
+                    <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="Changes for Specific Days or Times">
                 </div>
 
                 <script>
@@ -161,7 +168,7 @@
                 <p class="h3"><u>Event Cost</u></p>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Cost Per Attendee:</label>
-                    <input id="placeholderFont" type="number" class="form-control" id="formGroupExampleInput2" placeholder="$$ Event Cost $$">
+                    <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="$$ Event Cost $$">
                 </div>
                 <br>
                 </div>
@@ -172,7 +179,7 @@
                 <p class="h3"><u>Number of Attendees</u></p>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Number of Expected Attendees:</label>
-                    <input id="placeholderFont" type="number" class="form-control" id="formGroupExampleInput2" placeholder="Number of Attendees">
+                    <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="Number of Attendees">
                 </div>
                 <br>
                 </div>
@@ -183,7 +190,7 @@
                 <p class="h3"><u>Event Age Range</u></p>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Recommended Age Range:</label>
-                    <input id="placeholderFont" type="number" class="form-control" id="formGroupExampleInput2" placeholder="Recommended Age Range">
+                    <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="Recommended Age Range">
                 </div>
                 <br>
                 </div>
@@ -194,7 +201,7 @@
                 <p class="h3"><u>Required Items/Gear</u></p>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Required Items or Gear:</label>
-                    <input id="placeholderFont" type="text" class="form-control" id="formGroupExampleInput2" placeholder="Required Items/Gear">
+                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Required Items/Gear">
                 </div>
                 <br>
                 </div>
@@ -204,20 +211,20 @@
                 <div class="questionBox">
                 <p class="h3"><u>Event Parking</u></p>
                 <div class="form-check">
-                    <input id="placeholderFont" class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
                         checked>
                     <label class="form-check-label" for="exampleRadios1">
                         Free Parking
                     </label>
                 </div>
                 <div class="form-check">
-                    <input id="placeholderFont" class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
                     <label class="form-check-label" for="exampleRadios2">
                         Paid Parking
                     </label>
                 </div>
                 <div class="form-check">
-                    <input id="placeholderFont" class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
                     <label class="form-check-label" for="exampleRadios2">
                         You're on your own!
                     </label>
@@ -225,7 +232,7 @@
                 <br>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Parking Price:</label>
-                    <input id="placeholderFont" type="number" class="form-control" id="formGroupExampleInput2" placeholder="$$ Input General Price of Parking $$">
+                    <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="$$ Input General Price of Parking $$">
                 </div>
                 <br>
                 </div>
@@ -237,7 +244,7 @@
                 <p class="h3"><u>Food Availability</u></p>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Food Available for Attendees, If Any:</label>
-                    <input id="placeholderFont" type="text" class="form-control" id="formGroupExampleInput2" placeholder="Food Options">
+                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Food Options">
                 </div>
                 <br>
                 </div>
@@ -247,13 +254,13 @@
                 <p class="h3"><u>Celebrity Attendance</u></p>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Celebrities in Attendance:</label>
-                    <input id="placeholderFont" type="text" class="form-control" id="formGroupExampleInput2" placeholder="Add Some Extra Attraction!">
+                    <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Add Some Extra Attraction!">
                 </div>
                 <br>
                 </div>
                 <br>
                 <div class="submitButton">
-                <button id="submit" class="btn btn-primary" type="submit">Submit Form</button>
+                <button id="submit" class="btn btn-success" type="submit">Submit Form</button>
                 </div>
         </form>
         </div>
