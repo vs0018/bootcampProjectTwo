@@ -14,9 +14,15 @@ var API = {
       data: JSON.stringify(event)
     });
   },
-  getEvents: function() {
+  getAllEvents: function() {
     return $.ajax({
       url: "api/events",
+      type: "GET"
+    });
+  },
+  getOneEvent: function(name) {
+    return $.ajax({
+      url: "api/events/" + name,
       type: "GET"
     });
   },
@@ -30,7 +36,7 @@ var API = {
 
 // refreshEvents gets new events from the db and repopulates the list
 var refreshEvents = function() {
-  API.getEvents().then(function(data) {
+  API.getAllEvents().then(function(data) {
     var $events = data.map(function(event) {
       var $a = $("<a>")
         .text(event.eventDescription)
