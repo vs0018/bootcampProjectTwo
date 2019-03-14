@@ -1,11 +1,16 @@
 // import { checkServerIdentity } from "tls";
 
 // Get references to page elements
-// var $submitBtn = $("#submit");
+//BUTTONS
 var $goBtn = $("#goButton");
+var $submitBtn = $("#submit");
+
+//FORM ELEMENTS
 var $city = $("#eventCity");
 var $state = $("#eventState");
-
+var $fname = $("#userFirstName");
+var $lname = $("#userLastName");
+var $desc = $("#eventDesc");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
@@ -52,7 +57,7 @@ var handleGoButtonClick = function (event) {
 
   var list = eventsList();
   console.log(list)
-}
+};
 
 // handleFormSubmit is called whenever we submit a new event
 // Save the new event to the db and refresh the list
@@ -60,24 +65,18 @@ var handleFormSubmit = function (event) {
   event.preventDefault();
 
   var event = {
-    name: $exampleText.val().trim(),
-    desc: $exampleDescription.val().trim(),
-    // city: ,
-    // state: ,
-    // zip: 
-  };
+    city: $city.val().trim(),
+    state: $state.val().trim(),
+    userFname: $fname.val().trim(),
+    userLname: $lname.val().trim(),
+    desc: $desc.val().trim(),
 
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
-    return;
-  }
+  };
 
   API.saveEvent(event).then(function () {
     refreshEvents();
   });
 
-  $exampleText.val("");
-  $exampleDescription.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
