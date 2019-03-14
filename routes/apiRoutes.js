@@ -1,42 +1,87 @@
 var db = require("../models");
 var passport = require("../config/passport");
 
-
 module.exports = function(app) {
-  // Get all events
-  app.get("/api/events", function(req, res) {
-    db.Event.findAll({}).then(function(dbExamples) {
-      res.json(dbExamples);
-    });
-  });
+  //EVENT ROUTES
 
-  // Create a new event
-  app.post("/api/events", function(req, res) {
-    db.Event.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+  // Chained routes for general api/event
+  app.route("api/events")
+    // GET route for returning all events
+    .get(function(req, res) {
+      db.Event.findAll({}).then(function(dbEvents) {
+        res.json(dbEvents);
+      });
+    })
+    // POST route for creating a new event
+    .post(function(req, res) {
+      db.Event.create({
+        eventName: req.body.name,
+      }).then(function(dbEvent) {
+        res.json(dbEvent);
+      });
     });
-  });
 
-  // Create a new user/atendee
-  app.post("/api/attendees", function(req, res) {
-    db.Attendee.create(req.body).then(function(dbExample) {
-      res.json(dbExample);
+  // Chained routes by event name
+  app.route("api/events/:eventName")
+    // GET routes for returning specific events based on search params
+    .get(function(req, res) {
+      db.Event.findAll({
+        where: {
+          eventName: req.params.name
+        }
+      }).then(function(dbEvent) {
+        res.json(dbEvent);
+      });
     });
-  });
 
-  // Delete an example by id
+  // Delete (Cancel) an event by id
   app.delete("/api/events/:id", function(req, res) {
-    db.Event.destroy({ where: { id: req.params.id } }).then(function(
-      dbExample
-    ) {
-      res.json(dbExample);
+    db.Event.destroy({
+      where: {
+        eventID: req.params.id
+      }
+    }).then(function(dbEvent) {
+      res.json(dbEvent);
     });
   });
 
+  //ATTENDEE ROUTES
 
-// 
-// P A S S P O R T routing
-// 
+  // Chained routes for general api/attendee
+  app.route("api/attendee")
+    // GET route for returning all users
+    .get(function(req, res) {
+      db.Attendee.findAll({}).then(function(dbUsers) {
+        res.json(dbUsers);
+      });
+    })
+    // POST route to create a new user/attendee
+    .post(function(req, res) {
+      db.Attendee.create(req.body).then(function(dbAttendee) {
+        res.json(dbAttendee);
+      });
+    });
+
+  app.route("api/users/:userName")
+    // GET route for returning a particular user's events
+    .get(function(req, res) {
+      db.Attendee.findAll({
+        where: {
+          $or: [
+            {
+              attendeeFirst: req.params.id,
+              attendeeLast: req.params.id
+            }
+          ]
+        }
+      }).then(function(dbUser) {
+        res.json(dbUser);
+      });
+    });
+
+  //
+  // P A S S P O R T routing
+  //
 
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid signin credentials, send them to the members page.
@@ -57,13 +102,15 @@ module.exports = function(app) {
     db.User.create({
       email: req.body.email,
       password: req.body.password
-    }).then(function() {
-      res.redirect(307, "/api/signin");
-    }).catch(function(err) {
-      console.log(err);
-      res.json(err);
-      // res.status(422).json(err.errors[0].message);
-    });
+    })
+      .then(function() {
+        res.redirect(307, "/api/signin");
+      })
+      .catch(function(err) {
+        console.log(err);
+        res.json(err);
+        // res.status(422).json(err.errors[0].message);
+      });
   });
 
   // Route for logging user out
@@ -77,8 +124,7 @@ module.exports = function(app) {
     if (!req.user) {
       // The user is not logged in, send back an empty object
       res.json({});
-    }
-    else {
+    } else {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
@@ -87,6 +133,4 @@ module.exports = function(app) {
       });
     }
   });
-
-
 };

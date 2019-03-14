@@ -1,5 +1,4 @@
-$(document).ready(function () {
-
+$(document).ready(function() {
   // Getting references to our form and input
   var signUpForm = $(".signup");
 
@@ -18,12 +17,9 @@ $(document).ready(function () {
   var instagram = $("#instagram");
   var facebook = $("#facebook");
 
-
-
   // When the signup button is clicked, we validate the email and password are not blank
   // signUpForm.on("submit", function(event) {
-  $("body").on("click", "#submitSignUp", function (event) {
-
+  $("body").on("click", "#submitSignUp", function(event) {
     event.preventDefault();
 
     console.log(inputEmail.val().trim());
@@ -63,10 +59,12 @@ $(document).ready(function () {
     $.post("/api/signup", {
       email: email,
       password: password
-    }).then(function (data) {
-      window.location.replace(data);
-      // If there's an error, handle it by throwing up a bootstrap alert
-    }).catch(handleLoginErr);
+    })
+      .then(function(data) {
+        window.location.replace(data);
+        // If there's an error, handle it by throwing up a bootstrap alert
+      })
+      .catch(handleLoginErr);
   }
 
   function handleLoginErr(err) {
