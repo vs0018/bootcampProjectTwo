@@ -15,11 +15,11 @@ module.exports = function(app) {
 
   app.get("/signin", function(req, res) {
     // If the user already has an account send them to the members page
-    if (req.user) {
-      res.redirect("/index");
-    }
+    // if (req.user) {
+      res.render("signin");
+    // }
     // res.sendFile(path.join(__dirname, "../public/login.html"));
-    res.render("signup");
+    // res.render("signup");
   });
 
   // Here we've add our isAuthenticated middleware to this route.
@@ -46,7 +46,7 @@ module.exports = function(app) {
 
   // Load search events page
   app.get("/search", function(req, res) {
-    res.render("search", eventsList);
+    res.render("search");
   });
 
   // Render 404 page for any unmatched routes

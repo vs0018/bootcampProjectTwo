@@ -4,18 +4,19 @@ $(document).ready(function() {
 
   var inputEmail = $("#inputEmail");
   var inputPassword = $("#inputPassword");
-  var passConf = $("#passConf");
-  var inputFirstName = $("#inputFirstName");
-  var inputLastName = $("#inputLastName");
-  var inputAge = $("#inputAge");
-  var inputPhone = $("#inputPhone");
-  var inputCity = $("#inputCity");
-  var inputState = $("#inputState");
-  var inputZip = $("#inputZip");
-  var emergContact = $("#emergContact");
-  var emergNumber = $("#emergNumber");
-  var instagram = $("#instagram");
-  var facebook = $("#facebook");
+  // var inputUserName = $("#inputUserName");
+  // var passConf = $("#passConf");
+  // var inputFirstName = $("#inputFirstName");
+  // var inputLastName = $("#inputLastName");
+  // var inputAge = $("#inputAge");
+  // var inputPhone = $("#inputPhone");
+  // var inputCity = $("#inputCity");
+  // var inputState = $("#inputState");
+  // var inputZip = $("#inputZip");
+  // var emergContact = $("#emergContact");
+  // var emergNumber = $("#emergNumber");
+  // var instagram = $("#instagram");
+  // var facebook = $("#facebook");
 
   // When the signup button is clicked, we validate the email and password are not blank
   // signUpForm.on("submit", function(event) {
@@ -27,19 +28,20 @@ $(document).ready(function() {
 
     var userData = {
       inputEmail: inputEmail.val().trim(),
-      inputPassword: inputPassword.val().trim(),
-      passConf: passConf.val().trim(),
-      inputFirstName: inputFirstName.val().trim(),
-      inputLastName: inputLastName.val().trim(),
-      inputAge: inputAge.val().trim(),
-      inputPhone: inputPhone.val().trim(),
-      inputCity: inputCity.val().trim(),
-      inputState: inputState.val().trim(),
-      inputZip: inputZip.val().trim(),
-      emergContact: emergContact.val().trim(),
-      emergNumber: emergNumber.val().trim(),
-      instagram: instagram.val().trim(),
-      facebook: facebook.val().trim()
+      inputPassword: inputPassword.val().trim()
+      // inputUserName: inputUserName.val().trim(),
+      // passConf: passConf.val().trim(),
+      // inputFirstName: inputFirstName.val().trim(),
+      // inputLastName: inputLastName.val().trim(),
+      // inputAge: inputAge.val().trim(),
+      // inputPhone: inputPhone.val().trim(),
+      // inputCity: inputCity.val().trim(),
+      // inputState: inputState.val().trim(),
+      // inputZip: inputZip.val().trim(),
+      // emergContact: emergContact.val().trim(),
+      // emergNumber: emergNumber.val().trim(),
+      // instagram: instagram.val().trim(),
+      // facebook: facebook.val().trim()
     };
 
     // console.log(JSON.stringify(userData));
@@ -60,8 +62,11 @@ $(document).ready(function() {
       email: email,
       password: password
     })
-      .then(function(data) {
-        window.location.replace(data);
+      .then(function(resObj) {
+        // window.location.replace(data);
+        if (resObj.status === "Success") {
+          window.location = resObj.redirect;
+        }
         // If there's an error, handle it by throwing up a bootstrap alert
       })
       .catch(handleLoginErr);
