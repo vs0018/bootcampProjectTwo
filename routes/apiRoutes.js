@@ -19,9 +19,10 @@ module.exports = function(app) {
       eventCity: req.body.city,
       eventState: req.body.state,
       eventZip: req.body.zip
-    }).then(function(dbEvent) {
-      res.json(dbEvent);
     });
+    // .then(function(dbEvent) {
+    //   res.json(dbEvent);
+    // });
   });
 
   // Chained routes by event name

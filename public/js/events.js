@@ -104,5 +104,4 @@ var handleDeleteBtnClick = function() {
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-// $eventList.on("click", ".join", handleDeleteBtnClick);
 $goBtn.on("click", handleGoButtonClick);
