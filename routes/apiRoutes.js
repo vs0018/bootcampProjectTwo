@@ -4,25 +4,29 @@ var passport = require("../config/passport");
 module.exports = function(app) {
   //EVENT ROUTES
 
-  // Chained routes for general api/event
-  app.route("api/events")
-    // GET route for returning all events
-    .get(function(req, res) {
-      db.Event.findAll({}).then(function(dbEvents) {
-        res.json(dbEvents);
-      });
-    })
-    // POST route for creating a new event
-    .post(function(req, res) {
-      db.Event.create({
-        eventName: req.body.name,
-      }).then(function(dbEvent) {
-        res.json(dbEvent);
-      });
+  // GET route for returning all events
+  app.get("api/events", function(req, res) {
+    db.Event.findAll({}).then(function(dbEvents) {
+      res.json(dbEvents);
     });
+  });
+
+  // POST route for creating a new event
+  app.post("api/events", function(req, res) {
+    db.Event.create({
+      eventName: req.body.eventName,
+      eventDescription: req.body.desc,
+      eventCity: req.body.city,
+      eventState: req.body.state,
+      eventZip: req.body.zip
+    }).then(function(dbEvent) {
+      res.json(dbEvent);
+    });
+  });
 
   // Chained routes by event name
-  app.route("api/events/:eventName")
+  app
+    .route("api/events/:eventName")
     // GET routes for returning specific events based on search params
     .get(function(req, res) {
       db.Event.findAll({
@@ -48,7 +52,8 @@ module.exports = function(app) {
   //ATTENDEE ROUTES
 
   // Chained routes for general api/attendee
-  app.route("api/attendee")
+  app
+    .route("api/attendee")
     // GET route for returning all users
     .get(function(req, res) {
       db.Attendee.findAll({}).then(function(dbUsers) {
@@ -62,7 +67,8 @@ module.exports = function(app) {
       });
     });
 
-  app.route("api/users/:userName")
+  app
+    .route("api/users/:userName")
     // GET route for returning a particular user's events
     .get(function(req, res) {
       db.Attendee.findAll({

@@ -46,7 +46,7 @@ module.exports = function(app) {
 
   // Load search events page
   app.get("/search", function(req, res) {
-    res.render("search");
+    res.render("search", eventsList);
   });
 
   // Render 404 page for any unmatched routes
