@@ -1,70 +1,70 @@
 // Get references to page elements
 var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+var $eventList = $("#event-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
+  saveEvent: function(event) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
+      url: "api/events",
+      data: JSON.stringify(event)
     });
   },
-  getExamples: function() {
+  getEvents: function() {
     return $.ajax({
-      url: "api/examples",
+      url: "api/events",
       type: "GET"
     });
   },
-  deleteExample: function(id) {
+  deleteEvent: function(id) {
     return $.ajax({
-      url: "api/examples/" + id,
+      url: "api/events/" + id,
       type: "DELETE"
     });
   }
 };
 
-// refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
+// refreshEvents gets new events from the db and repopulates the list
+var refreshEvents = function() {
+  API.getEvents().then(function(data) {
+    var $events = data.map(function(event) {
       var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+        .text(event.eventDescription)
+        .attr("href", "/events/" + event.eventId);
 
       var $li = $("<li>")
         .attr({
           class: "list-group-item",
-          "data-id": example.id
+          "data-id": event.eventId
         })
         .append($a);
 
       var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
+        .addClass("btn btn-success float-right join")
+        .text(" join ");
 
       $li.append($button);
 
       return $li;
     });
 
-    $exampleList.empty();
-    $exampleList.append($examples);
+    $eventList.empty();
+    $eventList.append($events);
   });
 };
 
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
+// handleFormSubmit is called whenever we submit a new event
+// Save the new event to the db and refresh the list
 var handleFormSubmit = function(event) {
   event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
+  var event = {
+    eventName: $exampleText.val().trim(),
+    eventDescription: $exampleDescription.val().trim()
   };
 
   if (!(example.text && example.description)) {
@@ -72,8 +72,8 @@ var handleFormSubmit = function(event) {
     return;
   }
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
+  API.saveEvent(event).then(function() {
+    refreshEvents();
   });
 
   $exampleText.val("");
@@ -94,4 +94,4 @@ var handleDeleteBtnClick = function() {
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+// $eventList.on("click", ".join", handleDeleteBtnClick);
