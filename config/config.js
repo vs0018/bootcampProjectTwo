@@ -7,7 +7,8 @@ module.exports = {
     // password: process.env.MYSQL_PASSWORD,
     database: "goplay_db",
     host: "localhost",
-    dialect: "mysql"
+    dialect: "mysql",
+    logging: false    
   },
 
   test: {
@@ -30,6 +31,7 @@ module.exports = {
     password: process.env.PROD_DB_PASSWORD,
     database: process.env.PROD_DB_DATABASE,
     host: process.env.PROD_DB_HOST,
-    dialect: "mysql"
+    dialect: "mysql",
+    logging: false
   }
 };

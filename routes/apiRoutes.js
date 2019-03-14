@@ -110,7 +110,8 @@ module.exports = function(app) {
       password: req.body.password
     })
       .then(function() {
-        res.redirect(307, "/api/signin");
+        // res.redirect("/signin");
+        res.json({ status: "Success", redirect: '/signin' });
       })
       .catch(function(err) {
         console.log(err);
