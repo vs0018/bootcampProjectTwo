@@ -31,15 +31,15 @@ var API = {
 // refreshEvents gets new events from the db and repopulates the list
 var refreshEvents = function() {
   API.getEvents().then(function(data) {
-    var $events = data.map(function(example) {
+    var $events = data.map(function(event) {
       var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+        .text(event.eventDescription)
+        .attr("href", "/events/" + event.eventId);
 
       var $li = $("<li>")
         .attr({
           class: "list-group-item",
-          "data-id": example.id
+          "data-id": event.eventId
         })
         .append($a);
 
