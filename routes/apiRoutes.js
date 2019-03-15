@@ -5,7 +5,7 @@ module.exports = function(app) {
   //EVENT ROUTES
 
   // GET route for returning all events
-  app.get("api/events", function(req, res) {
+  app.get("/api/events/all", function(req, res) {
     db.Event.findAll({}).then(function(dbEvents) {
       res.json(dbEvents);
     });
@@ -28,7 +28,7 @@ module.exports = function(app) {
 
   // Chained routes by event name
   app
-    .route("api/events/:eventName")
+    .route("/api/events/:eventName")
     // GET routes for returning specific events based on search params
     .get(function(req, res) {
       db.Event.findAll({
@@ -55,7 +55,7 @@ module.exports = function(app) {
 
   // Chained routes for general api/attendee
   app
-    .route("api/attendee")
+    .route("/api/attendee")
     // GET route for returning all users
     .get(function(req, res) {
       db.Attendee.findAll({}).then(function(dbUsers) {
@@ -70,7 +70,7 @@ module.exports = function(app) {
     });
 
   app
-    .route("api/users/:userName")
+    .route("/api/users/:userName")
     // GET route for returning a particular user's events
     .get(function(req, res) {
       db.Attendee.findAll({

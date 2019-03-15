@@ -2,10 +2,11 @@
 
 // Get references to page elements
 //BUTTONS
-var $goBtn = $("#goButton");
+var $goBtn = $("#goBtn");
 var $submitBtn = $("#submit");
 
 //FORM ELEMENTS
+//From Create Page Fields
 var $city = $("#eventCity");
 var $state = $("#eventState");
 var $zip = $("#eventZip");
@@ -14,9 +15,15 @@ var $lname = $("#userLastName");
 var $evName = $("#eventName");
 var $desc = $("#eventDesc");
 
+//From Search Page Fields
+var $searchName = $("#searchName");
+var $searchUser = $("#searchUser");
+var $searchCity = $("#searchCity");
+var $searchState = $("#searchState");
+
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveEvent: function(newEvent) {
+  saveEvent: function (newEvent) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -24,27 +31,27 @@ var API = {
       type: "POST",
       url: "api/events/add",
       data: JSON.stringify(newEvent),
-      success: function(data) {
+      success: function (data) {
         console.log(data);
       },
-      error: function() {
+      error: function () {
         // Uh oh, something went wrong
       }
     });
   },
-  getAllEvents: function() {
+  getAllEvents: function () {
     return $.ajax({
-      url: "api/events",
+      url: "api/events/all",
       type: "GET"
     });
   },
-  getOneEvent: function(param) {
+  getOneEvent: function (param) {
     return $.ajax({
       url: "api/events/" + param, //need to define this below somewhere
       type: "GET"
     });
   },
-  deleteEvent: function(id) {
+  deleteEvent: function (id) {
     return $.ajax({
       url: "api/events/" + id,
       type: "DELETE"
@@ -53,23 +60,23 @@ var API = {
 };
 
 // eventsList gets all events from the db and repopulates the list
-var eventsList = function() {
-  API.getAllEvents().then(function(data) {
+var eventsList = function () {
+  API.getAllEvents().then(function (data) {
     var events = JSON.parse(data);
     return events;
   });
 };
 
-var handleGoButtonClick = function(event) {
+var handleGoButtonClick = function (event) {
   event.preventDefault();
 
-  var list = eventsList();
-  console.log(list);
+  
+
 };
 
 // handleFormSubmit is called whenever we submit a new event
 // Save the new event to the db and refresh the list
-var handleFormSubmit = function(event) {
+var handleFormSubmit = function (event) {
   event.preventDefault();
 
   var newEvent = {
@@ -92,12 +99,12 @@ var handleFormSubmit = function(event) {
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
+var handleDeleteBtnClick = function () {
   var idToDelete = $(this)
     .parent()
     .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function() {
+  API.deleteExample(idToDelete).then(function () {
     refreshExamples();
   });
 };
