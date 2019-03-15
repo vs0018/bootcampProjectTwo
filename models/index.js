@@ -18,6 +18,8 @@ if (config.use_env_variable) {
     config
   );
 }
+// sequelize.sync({ logging: console.log });
+
 
 fs.readdirSync(__dirname)
   .filter(function(file) {
@@ -36,7 +38,13 @@ Object.keys(db).forEach(function(modelName) {
   }
 });
 
+// (async () => {
+//   await sequelize.sync();
+// })();
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+
+// console.log(db.sequelize.config);
 
 module.exports = db;

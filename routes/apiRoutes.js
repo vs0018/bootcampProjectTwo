@@ -12,18 +12,37 @@ module.exports = function(app) {
     });
   });
 
+
+  app.post("/api/attendEvent", function(req, res) {
+    db.EventAttendance.create({
+      eventID: req.body.eventID,
+      userID: req.body.userID 
+    })    
+    .then(function() {
+      res.json({ status: "Success", redirect: "/search" });
+    })
+    .catch(function(err) {
+      console.log(err);
+      res.json(err);
+    });
+  });
+
+
+  
   // POST route for creating a new event
   app.post("/api/events/add", function(req, res) {
     console.log(req.body);
-
+    // console.log("whATTTTTT");
     db.Event.create({
       eventName: req.body.eventName,
       eventDescription: req.body.desc,
       eventCity: req.body.city,
       eventState: req.body.state,
       eventZip: req.body.zip
+      
     }).then(function(dbEvent) {
-      res.json(dbEvent);
+      // res.json(dbEvent);
+      res.redirect("/search");
     });
   });
 
@@ -100,7 +119,7 @@ module.exports = function(app) {
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
     // res.json("/index");
-    res.json({ status: "Success", redirect: "/index" });
+    res.json({ status: "Success", redirect: "/home" });
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to

@@ -44,12 +44,12 @@ module.exports = function(sequelize, Sequelize) {
     attendeeOtherLanguageYN: Sequelize.BOOLEAN
   });
 
-  Attendee.associate = function(models) {
-    Attendee.belongsToMany(models.Event, {
-      through: "EventAttendance",
-      foreignKey: "attendeeID"
-    });
-  };
+  // Attendee.associate = function(models) {
+  //   Attendee.belongsToMany(models.Event, {
+  //     through: "EventAttendance",
+  //     foreignKey: "attendeeID"
+  //   });
+  // };
 
   return Attendee;
 };
