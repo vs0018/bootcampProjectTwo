@@ -111,7 +111,8 @@ module.exports = function(app) {
     console.log("sign up clicked");
     db.User.create({
       email: req.body.email,
-      password: req.body.password
+      password: req.body.password,
+      username: req.body.username
     })
       .then(function() {
         // res.redirect("/signin");
