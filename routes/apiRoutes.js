@@ -13,7 +13,6 @@ module.exports = function(app) {
 
   // POST route for creating a new event
   app.post("/api/events/add", function(req, res) {
-    
     console.log(req.body);
 
     db.Event.create({
