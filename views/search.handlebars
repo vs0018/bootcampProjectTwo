@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-sm">
         <br>
-        <h3 class="formHead">Search Events</h3>
+        <h3 class="formHead">Search Events, {{username}}</h3>
       </div>
     </div>
 
@@ -33,9 +33,9 @@
             <div id="searchEventName" class="collapse" aria-labelledby="headingOne" data-parent="#searchAccordion">
               <div class="card-body">
                 <div class="input-group">
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" id="searchName">
                   <span class="input-group-btn">
-                    <button id="goButton" class="btn btn-outline-success" type="button">Go!</button>
+                    <button id="goButton" class="btn btn-outline-success" type="button" id="goBtn">Go!</button>
                   </span>
                 </div>
               </div>
@@ -54,9 +54,9 @@
             <div id="searchEventUser" class="collapse" aria-labelledby="headingTwo" data-parent="#searchAccordion">
               <div class="card-body">
                 <div class="input-group">
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" id="searchUser">
                   <span class="input-group-btn">
-                    <button class="btn btn-outline-success" type="button">Go!</button>
+                    <button class="btn btn-outline-success" type="button" id="goBtn">Go!</button>
                   </span>
                 </div>
               </div>
@@ -75,9 +75,9 @@
             <div id="searchEventCity" class="collapse" aria-labelledby="headingThree" data-parent="#searchAccordion">
               <div class="card-body">
                 <div class="input-group">
-                  <input type="text" class="form-control">
+                  <input type="text" class="form-control" id="searchCity">
                   <span class="input-group-btn">
-                    <button class="btn btn-outline-success" type="button">Go!</button>
+                    <button class="btn btn-outline-success" type="button" id="goBtn">Go!</button>
                   </span>
                 </div>
               </div>
@@ -96,7 +96,7 @@
             <div id="searchEventState" class="collapse" aria-labelledby="headingFour" data-parent="#searchAccordion">
               <div class="card-body">
                 <div class="input-group">
-                  <select class="custom-select" id="selectState" aria-label="select state">
+                  <select class="custom-select" id="searchState" aria-label="select state">
                     <option selected>Choose...</option>
                     <option value="1">DE</option>
                     <option value="2">NJ</option>
@@ -104,7 +104,7 @@
                     <option value="4">PA</option>
                   </select>
                   <div class="input-group-append">
-                    <button class="btn btn-outline-success" type="button">Go!</button>
+                    <button class="btn btn-outline-success" type="button" id="goBtn">Go!</button>
                   </div>
                 </div>
               </div>
@@ -120,9 +120,11 @@
 
     <div class="row">
         <div class="col-sm">
-          {{#each events}}
-            {{> event-block}}
-          {{/each}}
+          <div class="accordion" id="eventsAccordion">
+            {{#each events}}
+              {{> event-block}}
+            {{/each}}
+          </div>
         </div>
     </div>
   </div>

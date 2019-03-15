@@ -10,6 +10,8 @@ var db = require("./models");
 
 // Setting up Express and Middleware
 var app = express();
+// var cors = require("cors");
+// app.use(cors());
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());

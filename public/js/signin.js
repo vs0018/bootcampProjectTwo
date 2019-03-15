@@ -3,19 +3,17 @@ $(document).ready(function() {
 
   // Getting references to our form and inputs
   var $submit = $("#submitSignIn");
-  var emailInput = $("#emailInput");
-  var passwordInput = $("#passwordInput");
+  var email = $("#emailInput");
+  var password = $("#passwordInput");
 
   // When the form is submitted, we validate there's an email and password entered
   // loginForm.on("submit", function (event) {
   $submit.on("click", function(event) {
     event.preventDefault();
 
-    alert(emailInput.val());
-
     var userData = {
-      email: emailInput.val().trim(),
-      password: passwordInput.val().trim()
+      email: email.val().trim(),
+      password: password.val().trim()
     };
 
     if (!userData.email || !userData.password) {
@@ -35,7 +33,10 @@ $(document).ready(function() {
       password: password
     })
       .then(function(data) {
-        window.location.replace(data);
+        // window.location.replace(data);
+        if (data.status === "Success") {
+          window.location = data.redirect;
+        }
         // If there's an error, log the error
       })
       .catch(function(err) {
