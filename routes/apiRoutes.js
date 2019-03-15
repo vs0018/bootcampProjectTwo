@@ -12,7 +12,9 @@ module.exports = function(app) {
   });
 
   // POST route for creating a new event
-  app.post("api/events", function(req, res) {
+  app.post("/api/events/add", function(req, res) {
+    console.log(req.body);
+
     db.Event.create({
       eventName: req.body.eventName,
       eventDescription: req.body.desc,
@@ -113,7 +115,7 @@ module.exports = function(app) {
     })
       .then(function() {
         // res.redirect("/signin");
-        res.json({ status: "Success", redirect: '/signin' });
+        res.json({ status: "Success", redirect: "/signin" });
       })
       .catch(function(err) {
         console.log(err);
