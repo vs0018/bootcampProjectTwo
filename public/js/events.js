@@ -22,7 +22,7 @@ var API = {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/events",
+      url: "api/events/add",
       data: JSON.stringify(newEvent),
       success: function(data) {
         console.log(data);

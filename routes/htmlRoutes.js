@@ -16,7 +16,7 @@ module.exports = function(app) {
   app.get("/signin", function(req, res) {
     // If the user already has an account send them to the members page
     // if (req.user) {
-      res.render("signin");
+    res.render("signin");
     // }
     // res.sendFile(path.join(__dirname, "../public/login.html"));
     // res.render("signup");

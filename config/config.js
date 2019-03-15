@@ -8,7 +8,7 @@ module.exports = {
     database: "goplay_db",
     host: "localhost",
     dialect: "mysql",
-    logging: false    
+    logging: false
   },
 
   test: {
