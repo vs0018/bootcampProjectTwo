@@ -15,27 +15,37 @@ module.exports = function(app) {
 
   app.get("/signin", function(req, res) {
     // If the user already has an account send them to the members page
-    // if (req.user) {
-      res.render("signin");
-    // }
+    if (req.user) {
+      return res.render("index");
+    }
     // res.sendFile(path.join(__dirname, "../public/login.html"));
-    // res.render("signup");
+    res.render("signin");
   });
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/index", isAuthenticated, function(req, res) {
-    // res.sendFile(path.join(__dirname, "../public/members.html"));
-    res.render("index");
+  app.get("/index", function(req, res) {
+    if (req.user) {
+      return res.render("index");
+    }
+    res.render("signin");
   });
 
   // Load signin page
   app.get("/", function(req, res) {
+    if (req.user) {
+      return res.render("index");
+    }
     res.render("signin");
+
   });
 
   // Load signup page
   app.get("/signup", function(req, res) {
+    if (req.user) {
+      return res.render("index");
+    }
+
     res.render("signup");
   });
 
@@ -46,7 +56,10 @@ module.exports = function(app) {
 
   // Load search events page
   app.get("/search", function(req, res) {
-    res.render("search");
+    if (req.user) {
+      return res.render("search", {userEmail: req.user.email});
+    }
+    res.render("signin");
   });
 
   // Render 404 page for any unmatched routes

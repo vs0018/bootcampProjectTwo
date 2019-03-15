@@ -46,10 +46,10 @@ $(document).ready(function () {
       email,
       password
     })
-      .then(function (resObj) {
+      .then(function (data) {
         // window.location.replace(data);
-        if (resObj.status === "Success") {
-          window.location = resObj.redirect;
+        if (data.status === "Success") {
+          window.location = data.redirect;
       }
         // If there's an error, handle it by throwing up a bootstrap alert
       })
