@@ -36,7 +36,6 @@ module.exports = function(app) {
       return res.render("index");
     }
     res.render("signin");
-
   });
 
   // Load signup page
@@ -50,18 +49,17 @@ module.exports = function(app) {
 
   // Load create event page
   app.get("/addevent", function(req, res) {
-    
     if (user.req) {
       return res.render(addevent);
     }
-    
+
     res.render("login");
   });
 
   // Load search events page
   app.get("/search", function(req, res) {
     if (req.user) {
-      return res.render("search", {username: req.user.username});
+      return res.render("search", { username: req.user.username });
     }
     res.render("signin");
   });
