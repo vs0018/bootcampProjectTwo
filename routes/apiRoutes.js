@@ -5,9 +5,10 @@ module.exports = function(app) {
   //EVENT ROUTES
 
   // GET route for returning all events
-  app.get("api/events", function(req, res) {
-    db.Event.findAll({}).then(function(dbEvents) {
-      res.json(dbEvents);
+  app.get("/api/events/all", function(req, res) {
+    db.Event.findAll({}).then(function(data) {
+      console.log(data);
+      res.json(data);
     });
   });
 
@@ -28,7 +29,7 @@ module.exports = function(app) {
 
   // Chained routes by event name
   app
-    .route("api/events/:eventName")
+    .route("/api/events/:eventName")
     // GET routes for returning specific events based on search params
     .get(function(req, res) {
       db.Event.findAll({
@@ -55,7 +56,7 @@ module.exports = function(app) {
 
   // Chained routes for general api/attendee
   app
-    .route("api/attendee")
+    .route("/api/attendee")
     // GET route for returning all users
     .get(function(req, res) {
       db.Attendee.findAll({}).then(function(dbUsers) {
@@ -70,7 +71,7 @@ module.exports = function(app) {
     });
 
   app
-    .route("api/users/:userName")
+    .route("/api/users/:userName")
     // GET route for returning a particular user's events
     .get(function(req, res) {
       db.Attendee.findAll({
@@ -99,8 +100,7 @@ module.exports = function(app) {
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
     // res.json("/index");
-    res.json({ status: "Success", redirect: '/index' });
-
+    res.json({ status: "Success", redirect: "/index" });
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to

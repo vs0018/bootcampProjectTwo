@@ -36,7 +36,7 @@ $(document).ready(function() {
         // window.location.replace(data);
         if (data.status === "Success") {
           window.location = data.redirect;
-        }        
+        }
         // If there's an error, log the error
       })
       .catch(function(err) {
