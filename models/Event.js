@@ -6,7 +6,7 @@ module.exports = function(sequelize, Sequelize, models) {
       autoIncrement: true,
       allowNull: false
     },
-
+    eventOrganizer: Sequelize.INTEGER,
     eventName: Sequelize.STRING,
     eventDescription: Sequelize.STRING,
     eventAddress1: Sequelize.STRING,
@@ -42,16 +42,17 @@ module.exports = function(sequelize, Sequelize, models) {
     eventCelebrityAttendanceYN: Sequelize.BOOLEAN
   });
 
-  Event.associate = function(models) {
-    Event.belongsTo(models.Activity, { foreignKey: "activityID" });
-  };
+  // Event.associate = function(models) {
+  //   Event.belongsTo(models.Activity, { foreignKey: "activityID" });
+  // };
 
   Event.associate = function(models) {
-    Event.belongsToMany(models.Attendee, {
+    Event.belongsToMany(models.User, {
       through: "EventAttendance",
       foreignKey: "eventID"
     });
   };
+  sequelize.sync();
 
   return Event;
 };

@@ -1,63 +1,121 @@
+var mysql = require("mysql");
+
 var db = require("../models");
+
 // Requiring our custom middleware for checking if a user is logged in
 var isAuthenticated = require("../config/middleware/isAuthenticated");
 
+
+// var config = db.sequelize.config;
+
+
+// console.log(config);
+
+// var connection = mysql.createConnection(config);
+
 var path = require("path");
 
-module.exports = function(app) {
-  // app.get("/", function(req, res) {
-  // If the user already has an account send them to the members page
-  //   if (req.user) {
-  //     res.redirect("/index");
-  //   }
-  //   res.sendFile(path.join(__dirname, "../public/signup.html"));
-  // });
 
-  app.get("/signin", function(req, res) {
+
+module.exports = function (app) {
+
+  app.get("/signin", function (req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      return res.render("index");
+      return res.render("home");
+      // return res.render("index");
     }
     res.render("signin");
   });
 
-  // Here we've add our isAuthenticated middleware to this route.
-  // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/index", function(req, res) {
+
+
+
+
+  app.get("/home", function (req, res) {
+
     if (req.user) {
-      return res.render("index");
+
+      return db.Event.findAll({}).then(function (data) {
+
+        let allEventsArr = [];
+
+        data.forEach(event => allEventsArr.push(event.dataValues));
+
+        return res.render("home", {
+          events: allEventsArr,
+          user: req.user
+        });
+      });
+
+
     }
     res.render("signin");
+
   });
+
+
+
+  app.get("/myevents", function (req, res) {
+
+    if (req.user) {
+
+      return db.Event.findAll({
+        include: [{model: db.User}],
+        // attributes: ['eventDescription', 'eventName', 'eventID'],
+        where: {
+          userID: req.user.userID
+        }
+      }).then(function (data) {
+
+        let myEventsArr = [];
+
+        data.forEach(event => myEventsArr.push(event.dataValues));
+
+        return res.render("myevents", {
+          events: myEventsArr,
+          user: req.user
+        });
+      });
+
+
+
+    }
+
+    res.render("signin");
+
+  });
+
+
 
   // Load signin page
-  app.get("/", function(req, res) {
+  app.get("/", function (req, res) {
     if (req.user) {
-      return res.render("index");
+      return res.redirect("/home");
+      // return res.render("index");
     }
     res.render("signin");
   });
 
   // Load signup page
-  app.get("/signup", function(req, res) {
+  app.get("/signup", function (req, res) {
     if (req.user) {
-      return res.render("index");
+      return res.render("home");
     }
 
     res.render("signup");
   });
 
   // Load create event page
-  app.get("/addevent", function(req, res) {
-    if (user.req) {
-      return res.render(addevent);
+  app.get("/addevent", function (req, res) {
+    if (req.user) {
+      return res.render("addevents");
     }
-
     res.render("login");
   });
 
   // Load search events page
-  app.get("/search", function(req, res) {
+  app.get("/search", function (req, res) {
     if (req.user) {
       return res.render("search", { username: req.user.username });
     }
@@ -65,9 +123,9 @@ module.exports = function(app) {
   });
 
   // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
-    if (user.req) {
-      return res.render("index");
+  app.get("*", function (req, res) {
+    if (req.user) {
+      return res.render("home");
     }
     res.render("404");
   });
