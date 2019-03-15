@@ -19,7 +19,7 @@ module.exports = function(app) {
       userID: req.body.userID 
     })    
     .then(function() {
-      res.json({ status: "Success", redirect: "/search" });
+      res.json({ status: "Success", redirect: "/myevents" });
     })
     .catch(function(err) {
       console.log(err);
@@ -39,10 +39,11 @@ module.exports = function(app) {
       eventCity: req.body.city,
       eventState: req.body.state,
       eventZip: req.body.zip
-      
     }).then(function(dbEvent) {
       // res.json(dbEvent);
-      res.redirect("/search");
+      // res.redirect("/main");
+      res.json({ status: "Success", redirect: "/home" });
+
     });
   });
 

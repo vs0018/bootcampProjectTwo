@@ -33,6 +33,7 @@ $(function () {
         data: JSON.stringify(newEvent),
         success: function (data) {
           console.log(data);
+          window.location = data.redirect;
         },
         error: function () {
           // Uh oh, something went wrong
@@ -86,9 +87,13 @@ $(function () {
       desc: $desc.val().trim()
     };
 
-    console.log(newEvent);
+    // console.log(newEvent);
 
     API.saveEvent(newEvent);
+
+    if (data.status === "Success") {
+      window.location = data.redirect;
+    }
     // .then(function () {
     //   refreshEvents();
     // });
