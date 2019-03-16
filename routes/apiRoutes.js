@@ -38,7 +38,8 @@ module.exports = function(app) {
       eventDescription: req.body.desc,
       eventCity: req.body.city,
       eventState: req.body.state,
-      eventZip: req.body.zip
+      eventZip: req.body.zip,
+      eventPhoto: req.body.photo
     }).then(function(dbEvent) {
       // res.json(dbEvent);
       // res.redirect("/main");
