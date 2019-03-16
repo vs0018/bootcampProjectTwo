@@ -16,9 +16,9 @@ form.login {
   background-size: 100% auto;
 }
 
-#homeContainer {
+#homeContainer, nav {
   box-shadow: 0 0 57.5px black;
-  background-color: lightgray
+  background-color: whitesmoke
 }
 
 body{
@@ -29,18 +29,19 @@ body{
 html{
   min-height: 100%;
 }
-.containAll{
-  width: 60%;
+
+
+#addEventContainer {
   margin: 0 auto;
   padding: 30px;
   margin-top: 25px;
   margin-bottom: 25px;
-  border-radius: 40px;
-  background: white;
+  /* border-radius: 1%; */
+  background: whitesmoke;
   font-family:'Fredericka the Great', cursive;
-  
-  
+  box-shadow: 0 0 57.5px black;
 }
+
 
 .formHead{
   font-family: 'Fredericka the Great', cursive;
@@ -101,7 +102,7 @@ label{
 }
 
 #signInBox{
-  width: 60%;
+  max-width: 60%;
   border-radius: 25px;
 }
 
@@ -143,11 +144,6 @@ label{
   justify-content: space-around;
 }
 
-#homeContainer{
-  width: 100%;
-  height: 100%;
-  margin-top: 2%;
-}
 
 #homeLeft{
   /* border: 2px solid yellow; */
@@ -170,11 +166,15 @@ label{
   margin: 0 auto;
   margin-top: 20px;
   margin-bottom: 10px;
-  border: 1px solid black;
+  border: 0.25px solid gray;
   box-shadow: 10px 10px 10px;
   box-shadow: 0 0 57.5px black;
-
 }
+
+card {
+  box-shadow: 0 0 27.5px black;
+}
+
 
 #homePage{
   /* border: 5px solid green; */
@@ -191,9 +191,6 @@ label{
   box-shadow: 0 0 17.5px black;
 }
 
-card {
-  box-shadow: 0 0 27.5px black;
-}
 
 nav {
   /* box-shadow: 0 2px -2px black; */
@@ -209,26 +206,26 @@ nav {
 
 #jumbo{
   text-align: center;
-  width: 85%;
+  /* max-width: 85%; */
   margin: 0 auto;
-  color: white;
+  color: whitesmoke;
   -webkit-text-stroke-width: .1px;
   -webkit-text-stroke-color: black;
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
   font-family: 'Fredericka the Great', cursive;
-  background-image: url(http://img.archiexpo.com/images_ae/photo-g/67453-3698295.jpg);
+  /* background-image: url(http://img.archiexpo.com/images_ae/photo-g/67453-3698295.jpg); */
   background-repeat: no-repeat;
-  background-size: 100% 101%;
+  background-size: 100%;
   
 }
 
 #searchBox{
-  border: 2px solid black;
-  background: white;
+  /* border: 2px solid black; */
+  background: whitesmoke;
   margin-top: 40px;
-  border-radius: 15px;
-  width: 60%;
+  /* border-radius: 15px; */
+  /* max-width: 800px; */
   box-shadow: 0 0 57.5px black;
   /* background-color: lightgray */
 }

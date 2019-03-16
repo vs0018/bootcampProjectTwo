@@ -1,28 +1,26 @@
-
-        <form>
-            <div class="containAll">
-                <h1 class="formHead" >Create an Event</h1>
-                <hr>
-                <hr>
-                <br>
-                <br>
-                <!--======= Event Creator and Location ======= -->
-                <div class="questionBox">
-                <p class="h3"><u>Event Creator and Location</u></p>
+<div id="addEventContainer" class="container p-5 mb-5">
+    <form>
+        {{!--
+        <div class="containAll"> --}}
+            <h1 class="formHead">Create an Event</h1>
+            <br>
+            <!--======= Event Creator and Location ======= -->
+            <div class="questionBox">
+                <p class="h3">
+                    <u>Event Creator and Location</u>
+                </p>
                 <form class="needs-validation" novalidate>
                     <div class="form-row">
                         <div class="col-md-4 mb-3">
                             <label for="userFirstName">First name</label>
-                            <input type="text" class="form-control" id="userFirstName" placeholder="First name"
-                                required>
+                            <input type="text" class="form-control" id="userFirstName" placeholder="First name" required>
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
                             <label for="validationCustom02">Last name</label>
-                            <input type="text" class="form-control" id="userLastName" placeholder="Last name"
-                                required>
+                            <input type="text" class="form-control" id="userLastName" placeholder="Last name" required>
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
@@ -33,8 +31,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroupPrepend">@</span>
                                 </div>
-                                <input type="text" class="form-control" id="eventUser" placeholder="Username"
-                                    aria-describedby="inputGroupPrepend" required>
+                                <input type="text" class="form-control" id="eventUser" placeholder="Username" aria-describedby="inputGroupPrepend" required>
                                 <div class="invalid-feedback">
                                     Please enter your username.
                                 </div>
@@ -73,9 +70,9 @@
                             <label for="validationCustom05">Location Name</label>
                             <input type="text" class="form-control" id="locationName" placeholder="Center Square Park" required>
                             <div class="invalid-feedback">
-                                Please enter a name for this location. 
+                                Please enter a name for this location.
                             </div>
-                        </div>                        
+                        </div>
                     </div>
 
                     <div class="form-group">
@@ -91,12 +88,12 @@
                     </div>
                     <!-- <button class="btn btn-primary" type="submit">Submit form</button> -->
                 </form>
-                </div>
-                <!-- ================================================================================== -->
-                <!-- ============= VVVV JAVASCRIPT FOR THE FUNCTION OF THIS FORM VVVV ================= -->
-                <!-- ================================================================================== -->
+            </div>
+            <!-- ================================================================================== -->
+            <!-- ============= VVVV JAVASCRIPT FOR THE FUNCTION OF THIS FORM VVVV ================= -->
+            <!-- ================================================================================== -->
 
-                <!-- <script>
+            <!-- <script>
                         // Example starter JavaScript for disabling form submissions if there are invalid fields
                         (function () {
                             'use strict';
@@ -116,10 +113,13 @@
                             }, false);
                         })();
                     </script> -->
-                <br><br>
-                <!--======= Type of Activity ======= -->
-                <div class="questionBox">
-                <p class="h3"><u>Event Name & Description</u></p>
+            <br>
+            <br>
+            <!--======= Type of Activity ======= -->
+            <div class="questionBox">
+                <p class="h3">
+                    <u>Event Name & Description</u>
+                </p>
                 <div class="form-group">
                     <label for="activityName">Event Name:</label>
                     <input type="text" class="form-control" id="eventName" placeholder="Pick up BBall">
@@ -127,28 +127,33 @@
                     <input type="text" class="form-control" id="eventDesc" placeholder="Recreational BBall game">
                 </div>
                 <br>
+            </div>
+            <br>
+            <!--======= Event Photo ======= -->
+            <div class="questionBox">
+                <p class="h3">
+                    <u>Add a Photo For This Event</u>
+                </p>
+                <div class="form-group">
+                    <label for="formGroupExampleInput">Photo URL:</label>
+                    <input type="text" class="form-control" id="photoID" placeholder="Image URL">
                 </div>
                 <br>
-                <!--======= Event Photo ======= -->
-                <div class="questionBox">
-                        <p class="h3"><u>Add a Photo For This Event</u></p>
-                        <div class="form-group">
-                            <label for="formGroupExampleInput">Photo URL:</label>
-                            <input type="text" class="form-control" id="photoID" placeholder="Image URL">
-                        </div>
-                        <br>
-                        </div>
-                        <br>
-                <!--======= Event Start and End Times ======= -->
-                
-                <br>
-                <div class="questionBox">
-                <p class="h3"><u>Event Start and End</u></p>
-                
+            </div>
+            <br>
+            <!--======= Event Start and End Times ======= -->
+
+            <br>
+            <div class="questionBox">
+                <p class="h3">
+                    <u>Event Start and End</u>
+                </p>
+
                 <label for="formGroupExampleInput">Select the Date and Time for the Event:</label>
                 <br>
                 <input type="text" name="datetimes" />
-                <br> <br>
+                <br>
+                <br>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Added Notes About Start Times and Dates:</label>
                     <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="Changes for Specific Days or Times">
@@ -167,59 +172,69 @@
                     });
                 </script>
                 <br>
-                </div>
-                <br> <br>
-                <!--======= Cost Per Attendee ======= -->
-                
-                <div class="questionBox">
-                <p class="h3"><u>Event Cost</u></p>
+            </div>
+            <br>
+            <br>
+            <!--======= Cost Per Attendee ======= -->
+
+            <div class="questionBox">
+                <p class="h3">
+                    <u>Event Cost</u>
+                </p>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Cost Per Attendee:</label>
                     <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="$$ Event Cost $$">
                 </div>
                 <br>
-                </div>
-                <br>
-                <!--======= Number of Attendees (min and max numbers) ======= -->
-                <br>
-                <div class="questionBox">
-                <p class="h3"><u>Number of Attendees</u></p>
+            </div>
+            <br>
+            <!--======= Number of Attendees (min and max numbers) ======= -->
+            <br>
+            <div class="questionBox">
+                <p class="h3">
+                    <u>Number of Attendees</u>
+                </p>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Number of Expected Attendees:</label>
                     <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="Number of Attendees">
                 </div>
                 <br>
-                </div>
-                <br>
-                <!--======= Event Minimum Age ======= -->
-                <br>
-                <div class="questionBox">
-                <p class="h3"><u>Event Age Range</u></p>
+            </div>
+            <br>
+            <!--======= Event Minimum Age ======= -->
+            <br>
+            <div class="questionBox">
+                <p class="h3">
+                    <u>Event Age Range</u>
+                </p>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Recommended Age Range:</label>
                     <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="Recommended Age Range">
                 </div>
                 <br>
-                </div>
-                <br>
-                <!--======= Required/Recommended Items or Gear ======= -->
-                <br>
-                <div class="questionBox">
-                <p class="h3"><u>Required Items/Gear</u></p>
+            </div>
+            <br>
+            <!--======= Required/Recommended Items or Gear ======= -->
+            <br>
+            <div class="questionBox">
+                <p class="h3">
+                    <u>Required Items/Gear</u>
+                </p>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Required Items or Gear:</label>
                     <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Required Items/Gear">
                 </div>
                 <br>
-                </div>
-                <br>
-                <!--======= Available Parking / Free or Pay & how much ======= -->
-                <br>
-                <div class="questionBox">
-                <p class="h3"><u>Event Parking</u></p>
+            </div>
+            <br>
+            <!--======= Available Parking / Free or Pay & how much ======= -->
+            <br>
+            <div class="questionBox">
+                <p class="h3">
+                    <u>Event Parking</u>
+                </p>
                 <div class="form-check">
-                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"
-                        checked>
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
                     <label class="form-check-label" for="exampleRadios1">
                         Free Parking
                     </label>
@@ -242,32 +257,36 @@
                     <input type="number" class="form-control" id="formGroupExampleInput2" placeholder="$$ Input General Price of Parking $$">
                 </div>
                 <br>
-                </div>
+            </div>
 
-                <br>
-                <!--======= Food Availability ======= -->
-                <br>
-                <div class="questionBox">
-                <p class="h3"><u>Food Availability</u></p>
+            <br>
+            <!--======= Food Availability ======= -->
+            <br>
+            <div class="questionBox">
+                <p class="h3">
+                    <u>Food Availability</u>
+                </p>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Food Available for Attendees, If Any:</label>
                     <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Food Options">
                 </div>
                 <br>
-                </div>
-                <br>
-                <!--======= Event Celebrity Attendance ======= -->
-                <div class="questionBox">
-                <p class="h3"><u>Celebrity Attendance</u></p>
+            </div>
+            <br>
+            <!--======= Event Celebrity Attendance ======= -->
+            <div class="questionBox">
+                <p class="h3">
+                    <u>Celebrity Attendance</u>
+                </p>
                 <div class="form-group">
                     <label for="formGroupExampleInput2">Celebrities in Attendance:</label>
                     <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Add Some Extra Attraction!">
                 </div>
                 <br>
-                </div>
-                <br>
-                <div class="submitButton">
+            </div>
+            <br>
+            <div class="submitButton">
                 <button id="submit" class="btn btn-success" type="submit">Submit</button>
                 </div>
-        </form>
-        </div>
+    </form>
+    </div>
