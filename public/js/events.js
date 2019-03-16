@@ -14,6 +14,9 @@ $(function () {
   var $lname = $("#userLastName");
   var $evName = $("#eventName");
   var $desc = $("#eventDesc");
+  var $photo = $("#photoID");
+
+
 
   //From Search Page Fields
   var $searchName = $("#searchName");
@@ -86,6 +89,11 @@ $(function () {
       eventName: $evName.val().trim(),
       desc: $desc.val().trim()
     };
+
+
+    if ($photo.val()) {
+      newEvent.photo = $photo.val().trim();
+    }
 
     // console.log(newEvent);
 
