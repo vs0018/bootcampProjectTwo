@@ -27,6 +27,23 @@ module.exports = function (app) {
       });
   });
 
+ 
+  app.post("/api/unregister", function (req, res) {
+    db.EventAttendance.destroy({
+      where: {
+        eventID: req.body.eventID,
+        userID: req.body.userID
+      }
+    })
+      .then(function () {
+        res.json({ status: "Success", redirect: "/myevents" });
+      })
+      .catch(function (err) {
+        console.log(err);
+        res.json(err);
+      });
+  });
+
 
 
   // POST route for creating a new event

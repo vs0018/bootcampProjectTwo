@@ -46,9 +46,9 @@
                     <p class="card-text">
                        {{this.eventLocationName}} - {{this.eventCity}}, {{this.eventState}} {{this.eventZip}}
                     </p>
-                    {{!-- <div class="card-body"> --}}
-                        {{!-- <a href="" type="button" class="btn btn-primary attendBtn" data-eventID={{this.eventID}} data-userID={{../user.userID}}>I want to attend!</a> --}}
-                    {{!-- </div> --}}
+                    <div class="text-center mt-3 mb-1">
+                        <button href="" type="button" class="btn btn-warning unregisterBtn" data-eventID={{this.eventID}} data-userID={{../user.userID}}>Unregister</button>
+                    </div>
                 </div>
             </div>
             {{/each}}
