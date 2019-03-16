@@ -74,6 +74,14 @@ $(function () {
 
   var handleGoButtonClick = function (event) {
     event.preventDefault();
+
+    let searchEventsArr = [];
+
+        data.forEach(event => searchEventsArr.push(event.dataValues));
+
+        return {
+          events: searchEventsArr
+        };
   };
 
   // handleFormSubmit is called whenever we submit a new event
