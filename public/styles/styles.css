@@ -172,12 +172,14 @@ label{
 
 #homePage{
   /* border: 5px solid green; */
-  background-image: url(https://wpmisc.com/sites/default/files/wallpaper/nature/72470/madeira-hd-wallpapers-72470-8729608.png);
-  border: 2px solid black;
+  
+  background-image: url(https://st2.depositphotos.com/1502607/10186/i/950/depositphotos_101860542-stock-photo-green-grass-soccer-field-background.jpg);
+  /* border: 2px solid black; */
   background-size: 100%;
   border-top-right-radius: 15px;
   border-top-left-radius: 15px;
   padding-top: 25px;
+  
   
   
 }
@@ -200,7 +202,7 @@ label{
   border-bottom-right-radius: 15px;
   border-bottom-left-radius: 15px;
   font-family: 'Fredericka the Great', cursive;
-  background-image: url(http://img.archiexpo.com/images_ae/photo-g/67453-3698295.jpg);
+  background-image: url(https://st2.depositphotos.com/1502607/10186/i/950/depositphotos_101860542-stock-photo-green-grass-soccer-field-background.jpg);
   background-repeat: no-repeat;
   background-size: 100% 101%;
   
