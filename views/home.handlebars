@@ -1,0 +1,43 @@
+{{!--
+<div id="jumbo" class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Go Play!</h1>
+        <p class="lead">Something Inspirational Goes Here!</p>
+    </div>
+</div> --}}
+
+<div id="homeContainer" class="container">
+    <div id="" class="row">
+        <div class="col-md-12"></div>
+        <a href="/addevent" id="homeCreate" type="button" class="btn btn-success" role="button">Create an Event</a>
+    </div>
+
+
+
+    <div id="homePage" class="row">
+
+
+
+        <div id="" class="col-md-6">
+            {{#each events}}
+            <div class="card" style="width: 18rem;">
+                <img src={{this.eventPhoto}} class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 id="homeCardTitle" class="card-title">
+                        {{this.eventName}}
+                    </h5>
+                    <hr>
+                    <p class="card-text">
+                        {{this.eventDescription}}
+                    </p>
+                    <div class="card-body">
+                        <a href="" type="button" class="btn btn-primary attendBtn" data-eventID={{this.eventID}} data-userID={{../user.userID}}>I want to attend!</a>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+
+   
+    </div>
+</div>

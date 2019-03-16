@@ -20,7 +20,7 @@ $(document).ready(function() {
 
   // When the signup button is clicked, we validate the email and password are not blank
   // signUpForm.on("submit", function(event) {
-  $("body").on("click", "#submitSignUp", function(event) {
+  $("#submitSignUp").on("click", function(event) {
     event.preventDefault();
 
     var userData = {
