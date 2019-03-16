@@ -17,7 +17,10 @@ module.exports = function(sequelize, Sequelize, models) {
     eventZip: Sequelize.INTEGER,
     eventStartDatetime: Sequelize.DATE,
     eventEndDatetime: Sequelize.DATE,
-    eventPhoto: Sequelize.STRING,
+    eventPhoto: {
+      type: Sequelize.STRING,
+      defaultValue: "https://via.placeholder.com/350x250"
+    },
     eventEquipmentNeededYN: Sequelize.BOOLEAN,
     eventEquipment: Sequelize.STRING,
     eventParkingAvailableYN: Sequelize.BOOLEAN,

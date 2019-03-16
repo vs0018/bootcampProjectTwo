@@ -61,11 +61,11 @@ module.exports = function (app) {
     if (req.user) {
 
       return db.Event.findAll({
-        include: [{model: db.User}],
-        // attributes: ['eventDescription', 'eventName', 'eventID'],
-        where: {
+        include: [{model: db.User, where: {
           userID: req.user.userID
-        }
+        } }]
+        // attributes: ['eventDescription', 'eventName', 'eventID', 'eventPhoto'],
+     
       }).then(function (data) {
 
         let myEventsArr = [];
