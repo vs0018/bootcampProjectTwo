@@ -111,7 +111,7 @@ module.exports = function (app) {
     if (req.user) {
       return res.render("addevents");
     }
-    res.render("login");
+    res.render("signin");
   });
 
   // Load search events page
