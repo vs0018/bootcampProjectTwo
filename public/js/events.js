@@ -15,6 +15,7 @@ $(function () {
   var $evName = $("#eventName");
   var $desc = $("#eventDesc");
   var $photo = $("#photoID");
+  var $locationName = $("#locationName");
 
 
 
@@ -87,7 +88,8 @@ $(function () {
       userFname: $fname.val().trim(),
       userLname: $lname.val().trim(),
       eventName: $evName.val().trim(),
-      desc: $desc.val().trim()
+      desc: $desc.val().trim(),
+      locationName: $locationName.val().trim()
     };
 
 

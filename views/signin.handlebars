@@ -1,13 +1,13 @@
 <div id="signInBox" class="container">
     <div class="row">
 
-        <div class="col-sm-3"></div>
-        <div class="col-sm-6 align-middle">
-            <div id="signInCorner" class="card card-block mt-4 p-5">
+        {{!-- <div class="col-sm-3"></div> --}}
+        <div class="col-md-12 align-middle card card-block mt-4">
+            {{!-- <div id="signInCorner" class=""> --}}
 
                 <form class="signin">
                     <div class="form-group">
-                        <h1 class="formHead">Log In</h1>
+                        <h1 class="formHead">Sign In</h1>
                         <hr>
                         <hr>
                         <label for="emailInput">Email address</label>
@@ -17,25 +17,25 @@
                         <label for="passwordInput">Password</label>
                         <input type="password" class="form-control" id="passwordInput" placeholder="Password">
                     </div>
-                    <div class="form-group">
+                    {{!-- <div class="form-group">
                         <div class="form-check">
                             <input type="checkbox" class="form-check-input" id="dropdownCheck">
                             <label class="form-check-label" for="dropdownCheck">
                                 Remember me
                             </label>
                         </div>
-                    </div>
+                    </div> --}}
                 </form>
 
                 <button id="submitSignIn" type="submit" class="btn btn-success">Log In</button>
 
                 <div class="dropdown-divider"></div>
 
-                <a id="signUp" class="dropdown-item" href="/signup">- New around here? Sign up</a>
-                <a id="forgotPassword" class="dropdown-item" href="#">- Forgot password?</a>
+                <a id="signUp" class="dropdown-item text-center" href="/signup">New around here? Sign up</a>
+                {{!-- <a id="forgotPassword" class="dropdown-item" href="#">- Forgot password?</a> --}}
 
-            </div>
+            {{!-- </div> --}}
         </div>
-        <div class="col-sm-3"></div>
+        {{!-- <div class="col-sm-3"></div> --}}
     </div>
 </div>

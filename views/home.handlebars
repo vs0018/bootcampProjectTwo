@@ -6,20 +6,29 @@
     </div>
 </div> --}}
 
-<div id="homeContainer" class="container">
-    <div id="" class="row">
-        <div class="col-md-12"></div>
-        <a href="/addevent" id="homeCreate" type="button" class="btn btn-success" role="button">Create an Event</a>
+<div id="homeContainer" class="container p-5 mb-5" style="">
+
+    <div id="" class="row buttonBox">
+        <div class="col-md-12 text-center">
+            <h5 class="formHead">Current Events</h5>
+            <h3>Select an event you're interested in or create a new one, or not.</h3>
+        </div>
     </div>
+    <br>
 
+    <div id="" class="row buttonBox">
+        <div class="col-md-12 text-center">
+            <button onclick="window.location.href='/addevent'" href="/addevent" id="homeCreate" type="button" class="btn btn-success"
+                role="button">
+                Create an event
+            </button>
+        </div>
+    </div>
+    <br>
 
-
-    <div id="homePage" class="row">
-
-
-
-        <div id="" class="col-md-6">
-            {{#each events}}
+    <div id="" class="row">
+        {{!--
+        <div class="col-md-12"> --}} {{#each events}}
             <div class="card" style="width: 18rem;">
                 <img src={{this.eventPhoto}} class="card-img-top" alt="...">
                 <div class="card-body">
@@ -30,14 +39,20 @@
                     <p class="card-text">
                         {{this.eventDescription}}
                     </p>
-                    <div class="card-body">
-                        <a href="" type="button" class="btn btn-primary attendBtn" data-eventID={{this.eventID}} data-userID={{../user.userID}}>I want to attend!</a>
+                    <hr>
+                    <p class="card-text">
+                        {{this.eventLocationName}}
+                    </p>
+                    <p class="card-text">
+                        {{this.eventCity}}, {{this.eventState}} {{this.eventZip}}
+                    </p>
+                    <div class="text-center mt-3 mb-1">
+                        <button href="" type="button" class="btn btn-primary attendBtn" data-eventID={{this.eventID}} data-userID={{../user.userID}}>I want to attend!</button>
                     </div>
                 </div>
             </div>
-            {{/each}}
-        </div>
+            {{/each}} {{!-- </div> --}}
 
-   
+
     </div>
 </div>
