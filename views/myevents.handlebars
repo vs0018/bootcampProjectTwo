@@ -6,19 +6,35 @@
     </div>
 </div> --}}
 
-<div id="homeContainer" class="container">
+<div id="homeContainer" class="container p-5 mb-5" style="">
+
+    <div id="" class="row buttonBox">
+        <div class="col-md-12 text-center">
+            <h5 class="formHead">Your Events</h5>
+            {{!-- <h3>Select an event you're interested in or create a new one, or not.</h3> --}}
+        </div>
+    </div>
+    <br>
+
+    <div id="" class="row buttonBox">
+        <div class="col-md-12 text-center">
+            <button onclick="window.location.href='/home'" href="/addevent" id="homeCreate" type="button" class="btn btn-primary" role="button">
+                See all available events
+            </button>
+        </div>
+    </div>
+    <br>
+    
 
 
 
 
-    <div id="homePage" class="row">
 
 
-
-        <div id="" class="col-md-6">
+    <div id="" class="row">
             {{#each events}}
             <div class="card" style="width: 18rem;">
-                <img src="https://via.placeholder.com/350x250" class="card-img-top" alt="...">
+                <img src={{this.eventPhoto}} class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 id="homeCardTitle" class="card-title">
                         {{this.eventName}}
@@ -27,9 +43,12 @@
                     <p class="card-text">
                         {{this.eventDescription}}
                     </p>
-                    <div class="card-body">
-                        <a href="" type="button" class="btn btn-primary attendBtn" data-eventID={{this.eventID}} data-userID={{../user.userID}}>I want to attend!</a>
-                    </div>
+                    <p class="card-text">
+                       {{this.eventLocationName}} - {{this.eventCity}}, {{this.eventState}} {{this.eventZip}}
+                    </p>
+                    {{!-- <div class="card-body"> --}}
+                        {{!-- <a href="" type="button" class="btn btn-primary attendBtn" data-eventID={{this.eventID}} data-userID={{../user.userID}}>I want to attend!</a> --}}
+                    {{!-- </div> --}}
                 </div>
             </div>
             {{/each}}
@@ -38,8 +57,5 @@
 
     </div>
 
-    <div id="" class="row">
-        <div class="col-md-12"></div>
-        <a href="/home" id="" type="button" class="btn btn-success" role="button">See all available events!</a>
-    </div>
+
 </div>

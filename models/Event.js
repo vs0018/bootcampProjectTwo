@@ -8,6 +8,7 @@ module.exports = function(sequelize, Sequelize, models) {
     },
     eventOrganizer: Sequelize.INTEGER,
     eventName: Sequelize.STRING,
+    eventLocationName: Sequelize.STRING,
     eventDescription: Sequelize.STRING,
     eventAddress1: Sequelize.STRING,
     eventAddress2: Sequelize.STRING,
