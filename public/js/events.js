@@ -2,7 +2,7 @@
 $(function () {
   // Get references to page elements
   //BUTTONS
-  var $goBtn = $("#goBtn");
+  var $goBtn = $("#goButton");
   var $submitBtn = $("#submit");
 
   //FORM ELEMENTS
@@ -74,6 +74,17 @@ $(function () {
 
   var handleGoButtonClick = function (event) {
     event.preventDefault();
+
+    var param = $(this).parent("div.input-group").find("input.searchName").val();
+    console.log(param);
+
+    API.getOneEvent(param).then(function (data) {
+      let searchEventsArr = [];
+      data.forEach(event => searchEventsArr.push(event.dataValues));
+      return {
+        events: searchEventsArr
+      };
+    });
   };
 
   // handleFormSubmit is called whenever we submit a new event

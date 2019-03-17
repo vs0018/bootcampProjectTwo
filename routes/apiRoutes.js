@@ -5,10 +5,9 @@ module.exports = function (app) {
   //EVENT ROUTES
 
   // GET route for returning all events
-  app.get("/api/events/all", function (req, res) {
-    db.Event.findAll({}).then(function (data) {
-      console.log(data);
-      res.json(data);
+  app.get("/api/events", function(req, res) {
+    db.Event.findAll({}).then(function(dbEvents) {
+      res.json(dbEvents);
     });
   });
 

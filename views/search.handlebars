@@ -28,7 +28,7 @@
                 <div class="input-group">
                   <input type="text" class="form-control" id="searchName">
                   <span class="input-group-btn">
-                    <button id="goButton" class="btn btn-outline-success" type="button" id="goBtn">Go!</button>
+                    <button id="goButton" class="btn btn-outline-success" type="button">Go!</button>
                   </span>
                 </div>
               </div>
@@ -111,13 +111,31 @@
 
     <hr>
 
-    <div class="row">
-        <div class="col-sm">
-          <div class="accordion" id="eventsAccordion">
-            {{#each events}}
-              {{> events-block}}
-            {{/each}}
-          </div>
-        </div>
+        <div id="" class="row">
+        {{!--
+        <div class="col-md-12"> --}} {{#each events}}
+            <div class="card" style="width: 18rem;">
+                <img src={{this.eventPhoto}} class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 id="homeCardTitle" class="card-title">
+                        {{this.eventName}}
+                    </h5>
+                    <hr>
+                    <p class="card-text">
+                        {{this.eventDescription}}
+                    </p>
+                    <hr>
+                    <p class="card-text">
+                        {{this.eventLocationName}}
+                    </p>
+                    <p class="card-text">
+                        {{this.eventCity}}, {{this.eventState}} {{this.eventZip}}
+                    </p>
+                    <div class="text-center mt-3 mb-1">
+                        <button href="" type="button" class="btn btn-primary attendBtn" data-eventID={{this.eventID}} data-userID={{../user.userID}}>I want to attend!</button>
+                    </div>
+                </div>
+            </div>
+            {{/each}} {{!-- </div> --}}
     </div>
   </div>
