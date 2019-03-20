@@ -58,6 +58,18 @@ html{
   margin-top: 25px;
 }
 
+.containAll {
+  background: whitesmoke;
+  width: 60%;
+  margin: 0 auto;
+  box-shadow: 0 0 57.5px black;
+
+}
+
+.formFields {
+  margin: 0 auto;
+}
+
 #submit{
   font-size: 1.5em;
   font-family:'Poiret One', cursive;
